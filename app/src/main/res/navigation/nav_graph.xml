@@ -17,6 +17,8 @@
         tools:layout="@layout/fragment_bem_vindo" >
         <action
             android:id="@+id/action_bemVindoFragment_to_home2"
-            app:destination="@id/home2" />
+            app:destination="@id/home2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
 </navigation>
