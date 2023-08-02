@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BemVindoFragment">
+
+
+    <ImageView
+        android:id="@+id/background_bem_vindo_cachorro"
+        android:layout_width="match_parent"
+        android:layout_height="428dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bemvindoimg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/inter_extra_bold"
+        android:text="@string/bem_vindo"
+        android:textColor="@color/white"
+        android:textSize="60dp"
+        app:layout_constraintEnd_toEndOf="@+id/background_bem_vindo_cachorro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/texto_bem_vindo_caso_necessite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_medium"
+        android:lineSpacingExtra="0sp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="@string/texto_Bem_vindo_caso_necessite_de_ajuda"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/background_bem_vindo_cachorro"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/background_bem_vindo_cachorro" />
+</androidx.constraintlayout.widget.ConstraintLayout>
