@@ -7,4 +7,7 @@
     <string name="texto_bemVindo_venha_visitar_nosso_aplicativo">Venha visitar nosso aplicativo, explore todas as possibilidades!</string>
     <string name="button_bemVindo_primeiros_socorros">Primeiros Socorros</string>
     <string name="home">Home</string>
+    <string name="exploreSubtituloHome">Explore</string>
+    <string name="titulo_item_card">Como prevenir doenças em gatos?</string>
+    <string name="chamada_item_card">Leia Agora como previnir...</string>
 </resources>

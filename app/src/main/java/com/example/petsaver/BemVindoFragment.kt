@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.example.petsaver.databinding.FragmentBemVindoBinding
+import com.google.android.material.internal.ToolbarUtils
 
 class BemVindoFragment : Fragment() {
     private var _binding : FragmentBemVindoBinding? = null
@@ -27,6 +28,6 @@ class BemVindoFragment : Fragment() {
         binding.buttonBemVindoHome.setOnClickListener {
             binding.buttonBemVindoHome.findNavController().navigate(R.id.action_bemVindoFragment_to_home2)
         }
-
     }
+
 }
