@@ -9,7 +9,13 @@
         android:id="@+id/home2"
         android:name="com.example.petsaver.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_bemVindoFragment"
+            app:destination="@id/bemVindoFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/bemVindoFragment"
         android:name="com.example.petsaver.BemVindoFragment"

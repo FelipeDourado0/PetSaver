@@ -3,8 +3,8 @@
     <color name="orange">#FD6846</color>
     <color name="dark_blue">#1C3FFD</color>
     <color name="black">#FF000000</color>
+    <color name="black_transparent">#08000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#3A3A3C</color>
-    <color name="transparent">#00FFFFFF</color>
     <color name="semi_Trasparent">#ABFFFFFF</color>
 </resources>
