@@ -6,7 +6,7 @@
     app:startDestination="@id/bemVindoFragment">
 
     <fragment
-        android:id="@+id/home2"
+        android:id="@+id/home"
         android:name="com.example.petsaver.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
@@ -23,7 +23,7 @@
         tools:layout="@layout/fragment_bem_vindo" >
         <action
             android:id="@+id/action_bemVindoFragment_to_home2"
-            app:destination="@id/home2"
+            app:destination="@id/home"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
     </fragment>

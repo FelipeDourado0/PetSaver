@@ -11,4 +11,8 @@
     <string name="titulo_item_card">Como prevenir doenças em gatos?</string>
     <string name="chamada_item_card">Leia Agora como previnir...</string>
     <string name="voc_sabia">Você Sabia?</string>
+    <string name="user_bottom_menu_item">User</string>
+    <string name="sos_bottom_menu_item">Sos</string>
+    <string name="pet_bottom_menu_item">Pet</string>
+    <string name="home_bottom_menu_item">Home</string>
 </resources>

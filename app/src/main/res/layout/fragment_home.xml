@@ -1,106 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    tools:context=".HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".HomeFragment">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imageView2"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="452dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/banner_home"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="452dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/banner_home"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imgLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:src="@drawable/logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:src="@drawable/logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tituloHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
-            android:clickable="true"
-            android:fontFamily="@font/inter_extra_bold"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="28dp"
-            app:layout_constraintStart_toEndOf="@+id/imgLogo"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tituloHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:clickable="true"
+                android:fontFamily="@font/inter_extra_bold"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="28dp"
+                app:layout_constraintStart_toEndOf="@+id/imgLogo"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/fraseEfeitoHome"
-            android:layout_width="380dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:elevation="1dp"
-            android:fontFamily="@font/inter_extra_bold"
-            android:text="Aprenda agora como salvar seu melhor amigo!"
-            android:textColor="@color/white"
-            android:textSize="28dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/fraseEfeitoHome"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:elevation="1dp"
+                android:fontFamily="@font/inter_extra_bold"
+                android:text="Aprenda agora como salvar seu melhor amigo!"
+                android:textColor="@color/white"
+                android:textSize="28dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/exploreSubtitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/inter_extra_bold"
-            android:text="@string/exploreSubtituloHome"
-            android:textColor="@color/grey"
-            android:textSize="28dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            <TextView
+                android:id="@+id/exploreSubtitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_extra_bold"
+                android:text="@string/exploreSubtituloHome"
+                android:textColor="@color/grey"
+                android:textSize="28dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerVeiw_explore"
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exploreSubtitulo" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerVeiw_explore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exploreSubtitulo" />
 
-        <TextView
-            android:id="@+id/voceSabiaSubtitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:fontFamily="@font/inter_extra_bold"
-            android:text="@string/voc_sabia"
-            android:textColor="@color/grey"
-            android:textSize="28dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerVeiw_explore" />
+            <TextView
+                android:id="@+id/voceSabiaSubtitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/inter_extra_bold"
+                android:text="@string/voc_sabia"
+                android:textColor="@color/grey"
+                android:textSize="28dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerVeiw_explore" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerVeiw_VoceSabia"
-            android:layout_width="match_parent"
-            android:paddingTop="10dp"
-            android:paddingRight="20dp"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/voceSabiaSubtitulo" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerVeiw_VoceSabia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/voceSabiaSubtitulo">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</FrameLayout>

@@ -7,4 +7,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#3A3A3C</color>
     <color name="semi_Trasparent">#ABFFFFFF</color>
+    <color name="cyan">#0EEAFF</color>
+
+
 </resources>

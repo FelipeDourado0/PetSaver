@@ -28,6 +28,7 @@ class BemVindoFragment : Fragment() {
         binding.buttonBemVindoHome.setOnClickListener {
             binding.buttonBemVindoHome.findNavController().navigate(R.id.action_bemVindoFragment_to_home2)
         }
+
     }
 
 }
