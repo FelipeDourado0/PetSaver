@@ -51,7 +51,7 @@
             <TextView
                 android:id="@+id/title_item_card"
                 android:layout_width="160dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/inter_medium"
                 android:text="@string/titulo_item_card"
@@ -65,14 +65,13 @@
                 android:id="@+id/subTitle_item_card"
                 android:layout_width="160dp"
                 android:layout_height="15dp"
-                android:layout_marginBottom="10dp"
                 android:fontFamily="@font/inter_medium"
                 android:text="@string/chamada_item_card"
                 android:textColor="@color/semi_Trasparent"
                 android:textSize="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/title_item_card"
-                app:layout_constraintStart_toStartOf="@+id/title_item_card" />
+                app:layout_constraintStart_toStartOf="@+id/title_item_card"
+                app:layout_constraintTop_toBottomOf="@+id/title_item_card" />
 
             <ImageView
                 android:id="@+id/photoPerfil"
