@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.example.petsaver.HomeFragment"
+        android:name="com.example.petsaver.ui.Adapters.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/bemVindoFragment"
-        android:name="com.example.petsaver.BemVindoFragment"
+        android:name="com.example.petsaver.ui.Adapters.fragments.BemVindoFragment"
         android:label="fragment_bem_vindo"
         tools:layout="@layout/fragment_bem_vindo" >
         <action

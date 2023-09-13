@@ -1,4 +1,4 @@
-package com.example.petsaver.Adapters
+package com.example.petsaver.ui.Adapters
 
 import android.content.Context
 import android.graphics.RenderEffect
@@ -10,9 +10,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.petsaver.R
-import com.example.petsaver.model.Materia
+import com.example.petsaver.database_materia.model.Materia
 
 class AdapterVoceSabiaRv(private val context: Context, private val items: List<Materia>): RecyclerView.Adapter<AdapterVoceSabiaRv.MateriaViewHolder>() {
 
@@ -24,8 +26,8 @@ class AdapterVoceSabiaRv(private val context: Context, private val items: List<M
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: MateriaViewHolder, position: Int) {
-        holder.photoPerfil.setImageResource(items[position].idImagePerfil)
-        holder.imageBackground.setImageResource(items[position].idImageBackGround)
+        Glide.with(context).load(items[position].imagePerfilUrl).into(holder.photoPerfil)
+        Glide.with(context).load(items[position].imageBackGroundUrl).into(holder.imageBackground)
         holder.titleItem.setText(items[position].title)
         holder.subTitleItem.setText(items[position].subTitle)
 

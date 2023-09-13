@@ -17,7 +17,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".BemVindoFragment">
+            tools:context=".ui.Adapters.fragments.BemVindoFragment">
 
             <ImageView
                 android:id="@+id/background_bem_vindo_cachorro"
