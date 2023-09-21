@@ -24,23 +24,38 @@ import com.example.petsaver.ui.Adapters.AdapterVoceSabiaRv
 import com.example.petsaver.databinding.FragmentHomeBinding
 import com.example.petsaver.repository.MateriaRepository
 import com.example.petsaver.ui.viewmodel.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: HomeViewModel by viewModels {
+    private lateinit var viewModel: HomeViewModel
+    /*private val viewModel: HomeViewModel by viewModels {
         HomeViewModel.HomeFragmentFactory((requireActivity().application as MateriasApplication).materiasRepositoryApp)
-    }
+    }*/
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater,container,false)
+        lifecycleScope.launch{
+            try {
+                viewModel.initialMateriasDatabase()
+            }catch(e: Exception){
+                Log.e("Error", "erro no banco", )
+            }
 
+        }
         ///Configuring list
         ///EXPLORE LIST
         val recyclerView_Explore = binding.recyclerVeiwExplore
@@ -72,5 +87,7 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_home2_to_bemVindoFragment)
         }
     }
+
+
 
 }

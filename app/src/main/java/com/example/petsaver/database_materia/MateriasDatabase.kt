@@ -1,5 +1,6 @@
 package com.example.petsaver.database_materia
 
+import android.app.Application
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
@@ -21,14 +22,13 @@ abstract class MateriasDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: MateriasDatabase? = null
 
-        fun getDatabase(scope: CoroutineScope, context: Context): MateriasDatabase {
+        fun getDatabase(context: Context): MateriasDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     MateriasDatabase::class.java,
                     "materias-database.db"
-                ).addCallback(InitialDataCallBack(scope))
-                    .build()
+                ).build()
 
                 INSTANCE = instance
                 instance
@@ -36,7 +36,7 @@ abstract class MateriasDatabase: RoomDatabase() {
         }
     }
 
-    private class InitialDataCallBack(
+    /*private class InitialDataCallBack(
         private val scope: CoroutineScope
     ): Callback(){
         override fun onCreate(db: SupportSQLiteDatabase) {
@@ -78,7 +78,7 @@ abstract class MateriasDatabase: RoomDatabase() {
 
             materiaDao.insertAll(materiasList)
         }
-    }
+    }*/
 
 
 

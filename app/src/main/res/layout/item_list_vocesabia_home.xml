@@ -31,7 +31,7 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
-                android:src="@drawable/gato"
+                android:src="@drawable/ic_launcher_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +79,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/photo_defult_bg"
                 android:scaleType="fitXY"
-                android:src="@drawable/imagem_mulher"
+                android:src="@drawable/ic_launcher_foreground"
                 app:layout_constraintStart_toStartOf="@+id/imageBackGround"
                 app:layout_constraintTop_toTopOf="@+id/imageBackGround" />
 
