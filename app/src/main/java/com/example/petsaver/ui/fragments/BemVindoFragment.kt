@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.example.petsaver.R
 import com.example.petsaver.databinding.FragmentBemVindoBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BemVindoFragment : Fragment() {
     private var _binding : FragmentBemVindoBinding? = null
     private val binding get() = _binding!!
