@@ -15,6 +15,9 @@
             app:destination="@id/bemVindoFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_home_to_materiaFragment"
+            app:destination="@id/materiaFragment" />
     </fragment>
     <fragment
         android:id="@+id/bemVindoFragment"
@@ -27,4 +30,9 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
+    <fragment
+        android:id="@+id/materiaFragment"
+        android:name="com.example.petsaver.ui.fragments.MateriaFragment"
+        android:label="fragment_materia"
+        tools:layout="@layout/fragment_materia" />
 </navigation>

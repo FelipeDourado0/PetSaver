@@ -12,6 +12,7 @@ import com.example.petsaver.database_materia.MateriasDatabase
 import com.example.petsaver.database_materia.daos.MateriaDao
 import com.example.petsaver.database_materia.model.Materia
 import com.example.petsaver.databinding.ActivityMainBinding
+import com.example.petsaver.repository.MateriaRepository
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
@@ -21,16 +22,17 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+    @Inject
+    lateinit var materiasRepository: MateriaRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
-        /*lifecycleScope.launch() {
-            initialMateriasDatabase(materiaDao)
-        }*/
-
+        lifecycleScope.launch() {
+            initialMateriasDatabase(materiasRepository)
+        }
         /// INICIANDO NAVBOTTOM
         initNavigation()
     }
@@ -42,8 +44,8 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(binding.bottomNavBar, navController)
     }
 
-    /*suspend fun initialMateriasDatabase(materiaDao: MateriaDao) {
-        materiaDao.deleteAllItems()
+    suspend fun initialMateriasDatabase(materiaDao: MateriaRepository) {
+        materiaDao.apagarDados()
 
         ///Add materias
         val materiasList = listOf(
@@ -69,7 +71,7 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        materiaDao.insertAll(materiasList)
-    }*/
+        materiaDao.insereDadosInicias(materiasList)
+    }
 
 }

@@ -8,52 +8,35 @@ import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.example.petsaver.database_materia.MateriasDatabase
 import com.example.petsaver.database_materia.daos.MateriaDao
 import com.example.petsaver.database_materia.model.Materia
 import com.example.petsaver.repository.IMateriasRepository
 import com.example.petsaver.repository.MateriaRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val materiasRepository: IMateriasRepository
 ) : ViewModel() {
+    lateinit var materiaExploreList: MutableList<Materia>
+    lateinit var materiaVoceSabiaList: MutableList<Materia>
 
-    suspend fun obterListaExplore() = materiasRepository.exploreList()
-    suspend fun obterListaVoceSabia() = materiasRepository.exploreList()
-
-    suspend fun initialMateriasDatabase() {
-        materiasRepository.apagarDados()
-
-        ///Add materias
-        val materiasList = listOf(
-            Materia(
-                imagePerfilUrl = "https://avatars.githubusercontent.com/u/75647938?v=4",
-                imageBackGroundUrl = "https://www.selecoes.com.br/media/uploads/2023/01/chihuahua-racas-de-cachorro-pequeno.jpg",
-                nameWriter = "aaaaaaaaaaaaa",
-                title = "bbbbbbbbbbbbbbbbb",
-                subTitle = "ccccccccccccccccccccccccc",
-                mainText = " adasd das das dasd as asd as das ",
-                voceSabiaList = true,
-                exploreList = true
-            ),
-            Materia(
-                imagePerfilUrl = "https://avatars.githubusercontent.com/u/75647938?v=4",
-                imageBackGroundUrl = "https://www.selecoes.com.br/media/uploads/2023/01/chihuahua-racas-de-cachorro-pequeno.jpg",
-                nameWriter = "zzzzzzzzzzzzzzz",
-                title = "ddddddddddddddddddd",
-                subTitle = "oooooooooooooooooooooooooooo",
-                mainText = " fhsdfgh hjfgh erwergasdffdz fgsdfhjsgzx sdfgasdfa ",
-                voceSabiaList = true,
-                exploreList = true
-            )
-        )
-
-        materiasRepository.insereDadosInicias(materiasList)
+    suspend fun dadosVoceSabiLista(): MutableList<Materia>{
+        var result=  viewModelScope.async { materiasRepository.voceSabiaList() }
+        return result.await()
     }
+
+    suspend fun dadosExploreLista(): MutableList<Materia>{
+        var result=  viewModelScope.async { materiasRepository.exploreList() }
+        return result.await()
+    }
+
     /*class HomeFragmentFactory(private val repository: MateriaRepository): ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return HomeViewModel(repository) as T

@@ -12,6 +12,7 @@
         android:layout_height="200dp"
         android:elevation="120dp"
         app:cardElevation="3dp"
+        android:clickable="true"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
