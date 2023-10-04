@@ -1,8 +1,7 @@
 package com.example.petsaver.repository
 
-import androidx.lifecycle.LiveData
 import com.example.petsaver.database_materia.daos.MateriaDao
-import com.example.petsaver.database_materia.model.Materia
+import com.example.petsaver.database_materia.model.MateriaDomain
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -12,7 +11,7 @@ class MateriaRepository @Inject constructor(
 ) : IMateriasRepository {
     override suspend fun voceSabiaList() = materiaDao.getAllVoceSabiaItems()
     override suspend fun exploreList() = materiaDao.getAllExploreItems()
-    override suspend fun insereDadosInicias(listaMaterias: List<Materia>) {
+    override suspend fun insereDadosInicias(listaMaterias: List<MateriaDomain>) {
         materiaDao.insertAll(listaMaterias)
     }
 

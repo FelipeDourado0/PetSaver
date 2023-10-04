@@ -10,13 +10,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.petsaver.R
-import com.example.petsaver.database_materia.model.Materia
+import com.example.petsaver.database_materia.model.MateriaDomain
 
-class AdapterExploreRv(private val context: Context, private val items: List<Materia>) :
+class AdapterExploreRv(private val context: Context, private val items: List<MateriaDomain>) :
     RecyclerView.Adapter<AdapterExploreRv.MateriaViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MateriaViewHolder {
