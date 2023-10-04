@@ -49,7 +49,8 @@ class AdapterVoceSabiaRv(private val context: Context, private val items: List<M
                     voceSabiaList = items[position].voceSabiaList,
                     mainText = items[position].mainText,
                     subTitle = items[position].subTitle,
-                    title = items[position].title
+                    title = items[position].title,
+                    tema = items[position].tema
                 )
             )
         }

@@ -7,10 +7,13 @@ data class Materia(
     var title: String,
     var subTitle: String,
     var mainText: String,
+    var tema: String,
     var voceSabiaList: Boolean,
     var exploreList: Boolean
+
 ): Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,

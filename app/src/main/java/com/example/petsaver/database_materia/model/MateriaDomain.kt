@@ -7,14 +7,16 @@ import java.util.UUID
 
 @Entity(tableName = "materias")
 data class MateriaDomain(
-    @ColumnInfo(name = "imagem_perfil") val imagePerfilUrl: String,
-    @ColumnInfo(name = "imagem_BackGround") val imageBackGroundUrl: String,
-    @ColumnInfo(name = "name_Writer") val nameWriter: String,
-    val title: String,
-    val subTitle: String,
-    val mainText:String,
-    val voceSabiaList: Boolean,
-    val exploreList: Boolean
+    @ColumnInfo(name = "imagem_perfil") var imagePerfilUrl: String,
+    @ColumnInfo(name = "imagem_BackGround") var imageBackGroundUrl: String,
+    @ColumnInfo(name = "name_Writer") var nameWriter: String,
+    var title: String,
+    var subTitle: String,
+    var mainText:String,
+    val tema: String,
+    var voceSabiaList: Boolean,
+    var exploreList: Boolean
+
 ){
     @PrimaryKey
     @ColumnInfo(name = "materia_Id") var materiaId : UUID = UUID.randomUUID()
