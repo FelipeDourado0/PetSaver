@@ -1,6 +1,8 @@
 package com.example.petsaver
 
+import android.os.Build
 import android.os.Bundle
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
@@ -12,6 +14,8 @@ import com.example.petsaver.repository.MateriaRepository
 import com.example.petsaver.ui.dataEntities.Materia
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.util.Date
 import javax.inject.Inject
 import kotlin.random.Random
 
@@ -22,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var materiasRepository: MateriaRepository
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -43,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(binding.bottomNavBar, navController)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private suspend fun initialMateriasDatabase(materiaDao: MateriaRepository) {
         materiaDao.apagarDados()
 
@@ -53,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         for (i in 0..10) {
             val titulo: List<Char> = ('a'..'g') + 'c'
             val mainText: List<Char> =
-                ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z')
+                ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z')
 
             materiasList.add(
                 MateriaDomain(
@@ -65,7 +71,8 @@ class MainActivity : AppCompatActivity() {
                     mainText = mainText.shuffled().joinToString(""),
                     voceSabiaList = i % 2 != 0,
                     exploreList = i % 2 == 0,
-                    tema = "Saúde"
+                    tema = "Saúde",
+                    dataMateria = Date()
                 )
             )
         }

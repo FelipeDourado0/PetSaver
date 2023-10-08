@@ -3,6 +3,7 @@ package com.example.petsaver.database_materia.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.Date
 import java.util.UUID
 
 @Entity(tableName = "materias")
@@ -15,7 +16,8 @@ data class MateriaDomain(
     var mainText:String,
     val tema: String,
     var voceSabiaList: Boolean,
-    var exploreList: Boolean
+    var exploreList: Boolean,
+    var dataMateria: Date
 
 ){
     @PrimaryKey

@@ -65,7 +65,7 @@
             <ImageView
                 android:id="@+id/image_bem_vindo_seta"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:src="@drawable/seta_bemvindo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

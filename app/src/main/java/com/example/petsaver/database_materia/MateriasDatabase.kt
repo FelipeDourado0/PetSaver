@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.example.petsaver.database_materia.daos.MateriaDao
+import com.example.petsaver.database_materia.model.Conversor
 import com.example.petsaver.database_materia.model.MateriaDomain
 
 @Database(entities = [MateriaDomain::class], version = 1, exportSchema = false)
+@TypeConverters(Conversor::class)
 abstract class MateriasDatabase: RoomDatabase() {
 
     abstract fun materiaDAO(): MateriaDao

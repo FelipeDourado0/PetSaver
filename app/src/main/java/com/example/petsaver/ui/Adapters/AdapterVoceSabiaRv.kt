@@ -50,7 +50,11 @@ class AdapterVoceSabiaRv(private val context: Context, private val items: List<M
                     mainText = items[position].mainText,
                     subTitle = items[position].subTitle,
                     title = items[position].title,
-                    tema = items[position].tema
+                    tema = items[position].tema,
+                    date = items[position].dataMateria.toString(),
+                    imageBackGroundUrl = items[position].imageBackGroundUrl,
+                    imagePerfilUrl = items[position].imagePerfilUrl,
+                    nameWriter = items[position].nameWriter
                 )
             )
         }
@@ -61,13 +65,13 @@ class AdapterVoceSabiaRv(private val context: Context, private val items: List<M
 
         val photoPerfil = itemView.findViewById<ImageView>(R.id.photoPerfil)!!
         val imageBackground = itemView.findViewById<ImageView>(R.id.imageBackGround)!!
-        val titleItem = itemView.findViewById<TextView>(R.id.title_item_card)
-        val subTitleItem = itemView.findViewById<TextView>(R.id.subTitle_item_card)
-        val cardView = itemView.findViewById<CardView>(R.id.cardViewHome)
-        val detalheFundo = itemView.findViewById<ImageView>(R.id.detalheFundo)
+        val titleItem: TextView = itemView.findViewById<TextView>(R.id.title_item_card)
+        val subTitleItem: TextView = itemView.findViewById<TextView>(R.id.subTitle_item_card)
+        val cardView: CardView = itemView.findViewById<CardView>(R.id.cardViewHome)
+        val detalheFundo: ImageView = itemView.findViewById<ImageView>(R.id.detalheFundo)
     }
 
     interface MateriaClickListenner {
         fun onMateriaClick(position: Int)
-    }
+    } 
 }

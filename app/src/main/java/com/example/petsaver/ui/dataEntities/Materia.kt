@@ -2,8 +2,13 @@ package com.example.petsaver.ui.dataEntities
 
 import android.os.Parcel
 import android.os.Parcelable
+import java.util.Date
 
 data class Materia(
+    var imagePerfilUrl: String,
+    var imageBackGroundUrl: String,
+    var nameWriter: String,
+    var date: String,
     var title: String,
     var subTitle: String,
     var mainText: String,
@@ -13,6 +18,10 @@ data class Materia(
 
 ): Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString()!!,
+        parcel.readString()!!,
+        parcel.readString()!!,
+        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
