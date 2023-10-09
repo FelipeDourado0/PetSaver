@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var materiasRepository: MateriaRepository
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,8 +59,10 @@ class MainActivity : AppCompatActivity() {
 
         for (i in 0..10) {
             val titulo: List<Char> = ('a'..'g') + 'c'
-            val mainText: List<Char> =
-                ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z') + ('a'..'z')
+            val mainText: MutableList<Char> = mutableListOf()
+            for(j in 0 .. 80)
+                mainText.addAll(('a'..'z'))
+
 
             materiasList.add(
                 MateriaDomain(
