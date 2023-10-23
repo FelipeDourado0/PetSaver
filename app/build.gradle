@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.petsaver'
+    namespace 'com.petsaverapp.petsaver'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.petsaver"
+        applicationId "com.petsaverapp.petsaver"
         minSdk 24
         targetSdk 33
         versionCode 1

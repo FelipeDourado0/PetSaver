@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.example.petsaver.ui.fragments.HomeFragment"
+        android:name="com.petsaverapp.petsaver.ui.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/bemVindoFragment"
-        android:name="com.example.petsaver.ui.Adapters.fragments.BemVindoFragment"
+        android:name="com.petsaverapp.petsaver.ui.fragments.BemVindoFragment"
         android:label="fragment_bem_vindo"
         tools:layout="@layout/fragment_bem_vindo" >
         <action
@@ -32,14 +32,14 @@
     </fragment>
     <fragment
         android:id="@+id/materiaDetalheFragment"
-        android:name="com.example.petsaver.ui.fragments.MateriaDetalheFragment"
+        android:name="com.petsaverapp.petsaver.ui.fragments.MateriaDetalheFragment"
         android:label="MateriaDetalheFragment" >
         <action
             android:id="@+id/action_materiaDetalheFragment_to_home"
             app:destination="@id/home" />
         <argument
             android:name="materia"
-            app:argType="com.example.petsaver.ui.dataEntities.Materia"
+            app:argType="com.petsaverapp.petsaver.ui.dataEntities.Materia"
             app:nullable="true"
             android:defaultValue="@null" />
     </fragment>
