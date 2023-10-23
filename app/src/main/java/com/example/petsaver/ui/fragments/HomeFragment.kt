@@ -14,6 +14,7 @@ import com.example.petsaver.R
 import com.example.petsaver.databinding.FragmentHomeBinding
 import com.example.petsaver.ui.Adapters.AdapterExploreRv
 import com.example.petsaver.ui.Adapters.AdapterVoceSabiaRv
+import com.example.petsaver.ui.dataEntities.Materia
 import com.example.petsaver.ui.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -51,6 +52,8 @@ class HomeFragment : Fragment() {
             val adpterExplore =
                 AdapterExploreRv(requireContext().applicationContext, viewModel.dadosExploreLista())
             recyclerViewExplore.adapter = adpterExplore
+            adpterExplore.onItemCLick =
+                { materia -> enviarDadosMateriaParaMateriaFragment(materia) }
         }
 
         /// VOCE SABIA LIST
@@ -68,21 +71,8 @@ class HomeFragment : Fragment() {
                 viewModel.dadosVoceSabiLista()
             )
             recyclerViewVoceSabia.adapter = adapterVoceSabia
-            adapterVoceSabia.onItemCLick = { materia ->
-                Log.i("a", "click")
-                /*val intent = Intent(requireContext(), DetailedMateriaActivity::class.java).also {
-                    it.putExtra("materia", materia)
-                }
-                startActivity(intent)*/
-                /*var ft = childFragmentManager.beginTransaction().also {
-                    it.replace(R.id.homeContainerView, MateriaDetalheFragment())
-                    it.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                    it.commit()
-                }*/
-                val action = HomeFragmentDirections.actionHomeToMateriaDetalheFragment(materia)
-                findNavController().navigate(action)
-                //onMateriaClick(1)
-            }
+            adapterVoceSabia.onItemCLick =
+                { materia -> enviarDadosMateriaParaMateriaFragment(materia) }
         }
 
         return binding.root
@@ -98,21 +88,8 @@ class HomeFragment : Fragment() {
         }
     }
 
-    /*override fun onMateriaClick(position: Int) {
-        var list: MutableList<MateriaDomain>
-        lifecycleScope.launch {
-            list = viewModel.dadosVoceSabiLista()
-
-            list[position]
-
-           *//* var ft = childFragmentManager.beginTransaction().also {
-                it.replace(R.id.homeContainerView, MateriaDetalheFragment())
-                it.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                it.addToBackStack(null)
-                it.commit()
-            }*//*
-            *//*val intent = Intent(activity, PointerEventPass.Main::class.java)
-            startActivity(intent)*//*
-        }
-    }*/
+    private fun enviarDadosMateriaParaMateriaFragment(materia: Materia) {
+        val action = HomeFragmentDirections.actionHomeToMateriaDetalheFragment(materia)
+        findNavController().navigate(action)
+    }
 }

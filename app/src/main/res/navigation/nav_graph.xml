@@ -40,6 +40,7 @@
         <argument
             android:name="materia"
             app:argType="com.example.petsaver.ui.dataEntities.Materia"
-            app:nullable="true" />
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 </navigation>

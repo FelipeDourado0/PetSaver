@@ -30,7 +30,7 @@ class MateriaDetalheFragment : Fragment() {
     ): View? {
         _binding = FragmentMateriaDetalheBinding.inflate(layoutInflater,container,false)
         binding.btnVoltarMateriaTela.setOnClickListener {
-            findNavController().navigateUp()
+            findNavController().navigate(R.id.action_materiaDetalheFragment_to_home)
         }
         binding.dataMateria.text = ""
         binding.temaMateria.text = args.materia?.tema

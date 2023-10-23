@@ -26,13 +26,24 @@ class AdapterVoceSabiaRv(private val context: Context, private val items: List<M
         return MateriaViewHolder(itemList)
     }
 
+    inner class MateriaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        lateinit var onMateriaListener: MateriaClickListenner
+
+        val photoPerfil = itemView.findViewById<ImageView>(R.id.photoPerfil)!!
+        val imageBackground = itemView.findViewById<ImageView>(R.id.imageBackGround)!!
+        val titleItem: TextView = itemView.findViewById<TextView>(R.id.title_item_card)
+        val subTitleItem: TextView = itemView.findViewById<TextView>(R.id.subTitle_item_card)
+        val cardView: CardView = itemView.findViewById<CardView>(R.id.cardViewHome)
+        val detalheFundo: ImageView = itemView.findViewById<ImageView>(R.id.detalheFundo)
+    }
+
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: MateriaViewHolder, position: Int) {
         Glide.with(context).load(items[position].imagePerfilUrl).into(holder.photoPerfil)
         Glide.with(context).load(items[position].imageBackGroundUrl).into(holder.imageBackground)
-        holder.titleItem.setText(items[position].title)
-        holder.subTitleItem.setText(items[position].subTitle)
+        holder.titleItem.text = items[position].title
+        holder.subTitleItem.text = items[position].subTitle
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             holder.detalheFundo.setRenderEffect(
@@ -58,17 +69,6 @@ class AdapterVoceSabiaRv(private val context: Context, private val items: List<M
                 )
             )
         }
-    }
-
-    inner class MateriaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        lateinit var onMateriaListener: MateriaClickListenner
-
-        val photoPerfil = itemView.findViewById<ImageView>(R.id.photoPerfil)!!
-        val imageBackground = itemView.findViewById<ImageView>(R.id.imageBackGround)!!
-        val titleItem: TextView = itemView.findViewById<TextView>(R.id.title_item_card)
-        val subTitleItem: TextView = itemView.findViewById<TextView>(R.id.subTitle_item_card)
-        val cardView: CardView = itemView.findViewById<CardView>(R.id.cardViewHome)
-        val detalheFundo: ImageView = itemView.findViewById<ImageView>(R.id.detalheFundo)
     }
 
     interface MateriaClickListenner {

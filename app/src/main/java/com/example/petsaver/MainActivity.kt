@@ -53,16 +53,14 @@ class MainActivity : AppCompatActivity() {
     private suspend fun initialMateriasDatabase(materiaDao: MateriaRepository) {
         materiaDao.apagarDados()
 
-
         ///Add materias
         val materiasList: MutableList<MateriaDomain> = mutableListOf()
 
         for (i in 0..10) {
             val titulo: List<Char> = ('a'..'g') + 'c'
             val mainText: MutableList<Char> = mutableListOf()
-            for(j in 0 .. 80)
+            for (j in 0..80)
                 mainText.addAll(('a'..'z'))
-
 
             materiasList.add(
                 MateriaDomain(
