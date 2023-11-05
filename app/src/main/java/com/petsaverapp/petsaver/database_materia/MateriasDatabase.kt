@@ -5,9 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.petsaverapp.petsaver.database_materia.daos.MateriaDao
-import com.petsaverapp.petsaver.database_materia.model.Conversor
-import com.petsaverapp.petsaver.database_materia.model.MateriaDomain
+import com.petsaverapp.core.data.database.daos.MateriaDao
+import com.petsaverapp.core.data.database.model.Conversor
+import com.petsaverapp.core.data.database.model.MateriaDomain
+
 
 @Database(entities = [MateriaDomain::class], version = 1, exportSchema = false)
 @TypeConverters(Conversor::class)

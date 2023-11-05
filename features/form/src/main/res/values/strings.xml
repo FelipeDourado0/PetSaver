@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PetSaver</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bem_vindo">Bem-vindo!</string>
+    <string name="texto_Bem_vindo_caso_necessite_de_ajuda">Caso necessite de ajuda com seu animal, clique no botão abaixo!</string>
+    <string name="texto_bemVindo_venha_visitar_nosso_aplicativo">Venha visitar nosso aplicativo, explore todas as possibilidades!</string>
+    <string name="button_bemVindo_primeiros_socorros">Primeiros Socorros</string>
+    <string name="home">Home</string>
+    <string name="exploreSubtituloHome">Explore</string>
+    <string name="titulo_item_card">Como prevenir doenças em gatos?</string>
+    <string name="chamada_item_card">Leia Agora como previnir…</string>
+    <string name="voc_sabia">Você Sabia?</string>
+    <string name="user_bottom_menu_item">User</string>
+    <string name="sos_bottom_menu_item">Sos</string>
+    <string name="pet_bottom_menu_item">Pet</string>
+    <string name="home_bottom_menu_item">Home</string>
+</resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/bemVindoFragment">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.petsaverapp.form.ui.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_bemVindoFragment"
+            app:destination="@id/bemVindoFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_home_to_materiaDetalheFragment"
+            app:destination="@id/materiaDetalheFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bemVindoFragment"
+        android:name="com.petsaverapp.form.ui.fragments.BemVindoFragment"
+        android:label="fragment_bem_vindo"
+        tools:layout="@layout/fragment_bem_vindo" >
+        <action
+            android:id="@+id/action_bemVindoFragment_to_home2"
+            app:destination="@id/home"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/materiaDetalheFragment"
+        android:name="com.petsaverapp.form.ui.fragments.MateriaDetalheFragment"
+        android:label="MateriaDetalheFragment" >
+        <action
+            android:id="@+id/action_materiaDetalheFragment_to_home"
+            app:destination="@id/home" />
+        <argument
+            android:name="materia"
+            app:argType="com.petsaverapp.form.ui.dataEntities.Materia"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>

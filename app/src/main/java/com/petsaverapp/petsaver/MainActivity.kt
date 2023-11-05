@@ -8,16 +8,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import com.petsaverapp.petsaver.database_materia.model.MateriaDomain
-import com.petsaverapp.petsaver.databinding.ActivityMainBinding
-import com.petsaverapp.petsaver.repository.MateriaRepository
-import com.petsaverapp.petsaver.ui.dataEntities.Materia
+import com.petsaverapp.R
+import com.petsaverapp.core.data.database.model.MateriaDomain
+import com.petsaverapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.time.LocalDateTime
 import java.util.Date
 import javax.inject.Inject
-import kotlin.random.Random
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -25,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
 
     @Inject
-    lateinit var materiasRepository: MateriaRepository
+    lateinit var materiasRepository: com.petsaverapp.core.data.repository.MateriaRepository
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private suspend fun initialMateriasDatabase(materiaDao: MateriaRepository) {
+    private suspend fun initialMateriasDatabase(materiaDao: com.petsaverapp.core.data.repository.MateriaRepository) {
         materiaDao.apagarDados()
 
         ///Add materias

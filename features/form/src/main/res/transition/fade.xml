@@ -1,0 +1,4 @@
+<fade xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:duration="@android:integer/config_shortAnimTime"
+    tools:targetApi="cupcake" />

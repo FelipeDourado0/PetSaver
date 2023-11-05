@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    //nemaspace necessario para nao precisar de uma manifest em um modulo de biblioteca
+    namespace 'com.petsaverapp.core.data'
+    compileSdk 34
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_18
+        targetCompatibility JavaVersion.VERSION_18
+    }
+    kotlinOptions {
+        jvmTarget = '18'
+    }
+}
+
+
+dependencies {
+
+    ///ROOM
+    def room_version = "2.5.2"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    /// To use Kotlin annotation processing tool (kapt)
+    kapt "androidx.room:room-compiler:$room_version"
+
+    //DAGGER HILT
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+
+    /// Kotlin Extensions e Coroutines
+    implementation "androidx.room:room-ktx:2.5.2"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.10"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1"
+}
+kapt {
+    correctErrorTypes true
+}
