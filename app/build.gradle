@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace 'com.petsaverapp'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.petsaverapp"
@@ -35,9 +35,8 @@ android {
     kotlinOptions {
         jvmTarget = '18'
     }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion '1.3.2'
+    configurations.all {
+        resolutionStrategy { force 'androidx.core:core-ktx:1.6.0' }
     }
     packagingOptions {
         resources {
@@ -58,7 +57,6 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    implementation 'androidx.activity:activity-compose:1.5.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
     implementation 'com.google.android.material:material:1.8.0'
@@ -68,7 +66,6 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
-    implementation 'androidx.compose.material:material-icons-core:1.4.3'
     implementation 'androidx.activity:activity-ktx:1.7.2'
     implementation 'androidx.fragment:fragment-ktx:1.6.1'
     implementation 'androidx.test:monitor:1.6.1'

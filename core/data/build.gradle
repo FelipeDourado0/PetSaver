@@ -8,7 +8,7 @@ plugins {
 android {
     //nemaspace necessario para nao precisar de uma manifest em um modulo de biblioteca
     namespace 'com.petsaverapp.core.data'
-    compileSdk rootProject.ext.sdkVersion
+    compileSdk 34
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_18
         targetCompatibility JavaVersion.VERSION_18

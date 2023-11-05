@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'com.petsaverapp.core.ui'
-    compileSdk 33
+    compileSdk 34
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
