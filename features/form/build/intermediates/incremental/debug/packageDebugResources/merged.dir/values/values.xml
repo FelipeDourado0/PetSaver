@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="black_transparent">#08000000</color>
+    <color name="cyan">#0EEAFF</color>
+    <color name="dark_blue">#1C3FFD</color>
+    <color name="dark_grey">#3A3A3C</color>
+    <color name="fundo">#E3E3E3</color>
+    <color name="grey">#E3E3E3</color>
+    <color name="orange">#FD6846</color>
+    <color name="semi_Trasparent">#ABFFFFFF</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">PetSaver</string>
+    <string name="bem_vindo">Bem-vindo!</string>
+    <string name="button_bemVindo_primeiros_socorros">Primeiros Socorros</string>
+    <string name="chamada_item_card">Leia Agora como previnir…</string>
+    <string name="exploreSubtituloHome">Explore</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="home_bottom_menu_item">Home</string>
+    <string name="pet_bottom_menu_item">Pet</string>
+    <string name="sos_bottom_menu_item">Sos</string>
+    <string name="texto_Bem_vindo_caso_necessite_de_ajuda">Caso necessite de ajuda com seu animal, clique no botão abaixo!</string>
+    <string name="texto_bemVindo_venha_visitar_nosso_aplicativo">Venha visitar nosso aplicativo, explore todas as possibilidades!</string>
+    <string name="titulo_item_card">Como prevenir doenças em gatos?</string>
+    <string name="user_bottom_menu_item">User</string>
+    <string name="voc_sabia">Você Sabia?</string>
+    <style name="circualr">
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>
