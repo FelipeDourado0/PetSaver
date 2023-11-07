@@ -3,7 +3,7 @@ package com.petsaverapp.form.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.petsaverapp.core.data.database.model.MateriaDomain
-import com.petsaverapp.core.data.repository.IMateriasRepository
+import com.petsaverapp.core.repository.materiasRepository.IMateriasRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import javax.inject.Inject
