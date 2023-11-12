@@ -26,7 +26,6 @@ android {
 dependencies {
     implementation project(":core:data")
     implementation project(":core:ui")
-    implementation project(":core:useCases")
 
     ///ROOM
     def room_version = "2.5.2"

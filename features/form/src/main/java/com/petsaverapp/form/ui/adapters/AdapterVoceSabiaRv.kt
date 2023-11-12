@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.petsaverapp.core.data.database.model.MateriaDomain
+import com.petsaverapp.core.data.database.materiasDatabase.model.MateriaDomain
 import com.petsaverapp.form.R
 import com.petsaverapp.form.ui.dataEntities.Materia
 
