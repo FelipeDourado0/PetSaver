@@ -1,4 +1,4 @@
-package com.petsaverapp.core.repository.materiasRepository
+package com.petsaverapp.core.repository
 
 import com.petsaverapp.core.repository.materiasRepository.IMateriasRepository
 import com.petsaverapp.core.repository.materiasRepository.MateriaRepository
@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-abstract class MateriasRepositoryModule {
+abstract class RepositoryModule {
 
     @Singleton
     @Binds

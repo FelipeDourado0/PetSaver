@@ -1,4 +1,4 @@
-package com.petsaverapp.core.usecases.materiasUseCase.di
+package com.petsaverapp.core.usecases
 
 import com.petsaverapp.core.usecases.materiasUseCase.GetMateriasUseCase
 import com.petsaverapp.core.usecases.materiasUseCase.IGetMateriasUseCase
