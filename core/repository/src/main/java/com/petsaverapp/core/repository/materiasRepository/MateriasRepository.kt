@@ -1,7 +1,7 @@
 package com.petsaverapp.core.repository.materiasRepository
 
-import com.petsaverapp.core.data.database.daos.MateriaDao
-import com.petsaverapp.core.data.database.model.MateriaDomain
+import com.petsaverapp.core.data.database.materiasDatabase.daos.MateriaDao
+import com.petsaverapp.core.data.database.materiasDatabase.model.MateriaDomain
 import javax.inject.Inject
 import javax.inject.Singleton
 

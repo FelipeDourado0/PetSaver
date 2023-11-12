@@ -73,7 +73,6 @@ class HomeFragment : Fragment() {
             adapterVoceSabia.onItemCLick =
                 { materia -> enviarDadosMateriaParaMateriaFragment(materia) }
         }
-
         return binding.root
     }
 

@@ -9,7 +9,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.petsaverapp.R
-import com.petsaverapp.core.data.database.model.MateriaDomain
+import com.petsaverapp.core.data.database.materiasDatabase.model.MateriaDomain
 import com.petsaverapp.core.repository.materiasRepository.MateriaRepository
 import com.petsaverapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
