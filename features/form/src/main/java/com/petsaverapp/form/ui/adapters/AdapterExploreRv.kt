@@ -2,6 +2,7 @@ package com.petsaverapp.form.ui.adapters
 
 import android.content.Context
 import android.graphics.RenderEffect
+import android.graphics.RenderEffect.*
 import android.graphics.Shader
 import android.os.Build
 import android.view.LayoutInflater
@@ -42,7 +43,7 @@ class AdapterExploreRv(private val context: Context, private val items: List<Mat
         holder.titleItem.text = items[position].title
         holder.subTitleItem.text = items[position].subTitle
 
-        holder.detalheFundo.setRenderEffect(RenderEffect.createBlurEffect(100F,100f,Shader.TileMode.MIRROR))
+        //holder.detalheFundo.setRenderEffect(createBlurEffect(100F,100f,Shader.TileMode.MIRROR))
         if(position == items.size - 1){
             val param = holder.cardCompleto.layoutParams as ViewGroup.MarginLayoutParams
             param.setMargins(60,0,60,0)
