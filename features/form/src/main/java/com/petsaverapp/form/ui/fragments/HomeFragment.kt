@@ -79,7 +79,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.imgLogo.setOnClickListener {
-            findNavController().navigate(R.id.action_bemVindoFragment_to_home2)
+            findNavController().navigate(R.id.action_home2_to_bemVindoFragment)
         }
         binding.tituloHome.setOnClickListener {
             findNavController().navigate(R.id.action_home2_to_bemVindoFragment)

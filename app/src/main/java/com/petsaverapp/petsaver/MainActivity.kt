@@ -4,14 +4,19 @@ import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.petsaverapp.R
 import com.petsaverapp.core.data.database.materiasDatabase.model.MateriaDomain
 import com.petsaverapp.core.repository.materiasRepository.MateriaRepository
 import com.petsaverapp.databinding.ActivityMainBinding
+import com.petsaverapp.form.ui.fragments.BemVindoFragment
+import com.petsaverapp.form.ui.fragments.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.util.Date
@@ -37,14 +42,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         /// INICIANDO NAVBOTTOM
-        initNavigation()
-    }
-
-    private fun initNavigation() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.bottomNavBar, navController)
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
