@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/bemVindoFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/home"
@@ -29,6 +29,9 @@
             app:destination="@id/home"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_bemVindoFragment_self"
+            app:destination="@id/bemVindoFragment" />
     </fragment>
     <fragment
         android:id="@+id/materiaDetalheFragment"
@@ -44,8 +47,8 @@
             android:defaultValue="@null" />
     </fragment>
     <fragment
-        android:id="@+id/login"
-        android:name="com.petsaverapp.form.login"
+        android:id="@+id/loginFragment"
+        android:name="com.petsaverapp.form.ui.fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
 </navigation>
