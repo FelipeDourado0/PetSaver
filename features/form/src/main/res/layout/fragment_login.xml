@@ -37,7 +37,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/ic_login_sair"
-            android:drawableTint="@color/mid_grey"
+            android:backgroundTint="@color/dark_grey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -117,6 +117,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
+            android:clickable="true"
             android:background="@drawable/background_input_text"
             android:backgroundTint="@color/blue"
             android:fontFamily="@font/inter_medium"

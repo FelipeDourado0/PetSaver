@@ -14,7 +14,7 @@
         android:icon="@drawable/ic_sos_item_menu"
         android:title="@string/sos_bottom_menu_item" />
     <item
-        android:id="@+id/LoginFragment"
+        android:id="@+id/loginFragment"
         android:icon="@drawable/ic_user_item_menu"
         android:title="@string/user_bottom_menu_item" />
 </menu>
