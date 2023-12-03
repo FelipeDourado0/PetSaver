@@ -29,6 +29,9 @@
             app:destination="@id/home"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_bemVindoFragment_self"
+            app:destination="@id/bemVindoFragment" />
     </fragment>
     <fragment
         android:id="@+id/materiaDetalheFragment"
@@ -43,4 +46,9 @@
             app:nullable="true"
             android:defaultValue="@null" />
     </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.petsaverapp.form.ui.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>

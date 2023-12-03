@@ -14,4 +14,14 @@
     <string name="sos_bottom_menu_item">Sos</string>
     <string name="pet_bottom_menu_item">Pet</string>
     <string name="home_bottom_menu_item">Home</string>
+    <string name="editarPerfil">Editar Perfil</string>
+    <string name="configuracoesdeperfil">Configurações de perfil</string>
+    <string name="facaagoraseulogin">Faça agora seu login!</string>
+    <string name="login">Login</string>
+    <string name="subtitulo_login_3">Seja bem vindo de volta, digite seu email e senha para continuar!</string>
+    <string name="senha">Senha</string>
+    <string name="email">Email</string>
+    <string name="entrar">Entrar</string>
+    <string name="textoInformativoTelaLogin">Ainda não tem uma conta?</string>
+    <string name="cadastrese">Cadastre-se</string>
 </resources>

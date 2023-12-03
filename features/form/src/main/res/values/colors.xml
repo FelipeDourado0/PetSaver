@@ -2,11 +2,13 @@
 <resources>
     <color name="orange">#FD6846</color>
     <color name="dark_blue">#1C3FFD</color>
+    <color name="blue">#15A9FA</color>
     <color name="black">#FF000000</color>
     <color name="black_transparent">#08000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="dark_grey">#3A3A3C</color>
     <color name="grey">#E3E3E3</color>
+    <color name="mid_grey">#AEAEB2</color>
     <color name="semi_Trasparent">#ABFFFFFF</color>
     <color name="cyan">#0EEAFF</color>
     <color name="fundo">#E3E3E3</color>
