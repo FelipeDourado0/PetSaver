@@ -24,4 +24,17 @@
     <string name="entrar">Entrar</string>
     <string name="textoInformativoTelaLogin">Ainda não tem uma conta?</string>
     <string name="cadastrese">Cadastre-se</string>
+    <string name="facaagoraseucadastro">Faça agora seu cadastro!</string>
+    <string name="nome_completo">Nome completo</string>
+    <string name="nome">Nome</string>
+    <string name="nascimento">Nascimento</string>
+    <string name="selecione">Selecione</string>
+    <string name="cep">CEP</string>
+    <string name="riodejaneiro">Rio de Janeiro</string>
+    <string name="Endereco">Endereço</string>
+    <string name="numero">Número</string>
+    <string name="estado">Estado</string>
+    <string name="complemento">Complemento</string>
+    <string name="casa">Casa</string>
+    <string name="proximo">Próximo</string>
 </resources>

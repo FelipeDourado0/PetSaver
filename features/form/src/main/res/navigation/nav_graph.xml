@@ -29,9 +29,6 @@
             app:destination="@id/home"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/action_bemVindoFragment_self"
-            app:destination="@id/bemVindoFragment" />
     </fragment>
     <fragment
         android:id="@+id/materiaDetalheFragment"
@@ -50,5 +47,14 @@
         android:id="@+id/loginFragment"
         android:name="com.petsaverapp.form.ui.fragments.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_cadastroUsuarioFragment"
+            app:destination="@id/cadastroUsuarioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cadastroUsuarioFragment"
+        android:name="com.petsaverapp.form.ui.fragments.CadastroUsuarioFragment"
+        android:label="fragment_cadastro_usuario"
+        tools:layout="@layout/fragment_cadastro_usuario" />
 </navigation>

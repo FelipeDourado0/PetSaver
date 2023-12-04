@@ -1,0 +1,313 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="40dp"
+    android:background="@color/blue"
+    tools:context=".ui.fragments.CadastroUsuarioFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/fundo_quadrado_bordas_arredondados">
+
+        <TextView
+            android:id="@+id/titulo_tela_cadastro_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/facaagoraseucadastro"
+            android:textColor="@color/mid_grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_sair_tela_login"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ic_login_sair"
+            android:backgroundTint="@color/dark_grey"
+            android:textColor="@color/dark_grey"
+            android:textColorHint="@color/dark_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/subtitulo_cadastro_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_extra_bold"
+            android:text="@string/cadastrese"
+            android:textColor="@color/dark_grey"
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titulo_tela_cadastro_usuario" />
+
+        <TextView
+            android:id="@+id/nome_tela_cadastro_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_extra_bold"
+            android:text="@string/nome"
+            android:textColor="@color/mid_dark_grey"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subtitulo_cadastro_usuario" />
+
+        <EditText
+            android:id="@+id/nome_editText_cadastro_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/background_input_text"
+            android:backgroundTint="@color/grey"
+            android:fontFamily="@font/inter_medium"
+            android:hint="@string/nome_completo"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/mid_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nome_tela_cadastro_usuario" />
+
+        <TextView
+            android:id="@+id/nascimento_tela_cadastro_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_extra_bold"
+            android:text="@string/nascimento"
+            android:textColor="@color/mid_dark_grey"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nome_editText_cadastro_usuario" />
+
+        <EditText
+            android:id="@+id/nascimento_cadastro_usuario"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/background_input_text"
+            android:backgroundTint="@color/grey"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:drawableStart="@drawable/ic_cadastro_usuario_calendar"
+            android:drawablePadding="10sp"
+            android:drawableTint="@color/mid_grey"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:fontFamily="@font/inter_medium"
+            android:hint="@string/selecione"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/mid_grey"
+            app:layout_constraintEnd_toStartOf="@+id/cep_editText_cadastro_usuario"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nascimento_tela_cadastro_usuario" />
+
+        <TextView
+            android:id="@+id/cep_tela_cadastro_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_extra_bold"
+            android:text="@string/cep"
+            android:textColor="@color/mid_dark_grey"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/cep_editText_cadastro_usuario"
+            app:layout_constraintTop_toBottomOf="@+id/nome_editText_cadastro_usuario" />
+
+        <EditText
+            android:id="@+id/cep_editText_cadastro_usuario"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/background_input_text"
+            android:backgroundTint="@color/grey"
+            android:fontFamily="@font/inter_medium"
+            android:hint="00000-000"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/mid_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/nascimento_cadastro_usuario"
+            app:layout_constraintTop_toBottomOf="@+id/cep_tela_cadastro_usuario" />
+
+        <TextView
+            android:id="@+id/endereco_tela_cadastro_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_extra_bold"
+            android:text="@string/Endereco"
+            android:textColor="@color/mid_dark_grey"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nascimento_cadastro_usuario" />
+
+        <EditText
+            android:id="@+id/endereco_editText_cadastro_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/background_input_text"
+            android:backgroundTint="@color/grey"
+            android:fontFamily="@font/inter_medium"
+            android:hint="@string/riodejaneiro"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/mid_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/endereco_tela_cadastro_usuario" />
+
+        <TextView
+            android:id="@+id/numero_tela_cadastro_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_extra_bold"
+            android:text="@string/numero"
+            android:textColor="@color/mid_dark_grey"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/endereco_editText_cadastro_usuario" />
+
+        <EditText
+            android:id="@+id/numero_editText_cadastro_usuario"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/background_input_text"
+            android:backgroundTint="@color/grey"
+            android:fontFamily="@font/inter_medium"
+            android:hint="123"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+
+            android:textColorHint="@color/mid_grey"
+            app:layout_constraintEnd_toStartOf="@+id/estado_editText_cadastro_usuario"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/numero_tela_cadastro_usuario" />
+
+        <TextView
+            android:id="@+id/estado_tela_cadastro_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_extra_bold"
+            android:text="@string/estado"
+            android:textColor="@color/mid_dark_grey"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/estado_editText_cadastro_usuario"
+            app:layout_constraintTop_toBottomOf="@+id/endereco_editText_cadastro_usuario" />
+
+        <EditText
+            android:id="@+id/estado_editText_cadastro_usuario"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/background_input_text"
+            android:backgroundTint="@color/grey"
+            android:fontFamily="@font/inter_medium"
+            android:hint="RJ"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/mid_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/numero_editText_cadastro_usuario"
+            app:layout_constraintTop_toBottomOf="@+id/estado_tela_cadastro_usuario" />
+
+        <TextView
+            android:id="@+id/complemento_tela_cadastro_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_extra_bold"
+            android:text="@string/complemento"
+            android:textColor="@color/mid_dark_grey"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/estado_editText_cadastro_usuario" />
+
+        <EditText
+            android:id="@+id/complemento_editText_cadastro_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/background_input_text"
+            android:backgroundTint="@color/grey"
+            android:fontFamily="@font/inter_medium"
+            android:hint="@string/casa"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/mid_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/complemento_tela_cadastro_usuario" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_proximo_tela_cadastro_usuario"
+            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="55dp"
+            android:background="@drawable/background_input_text"
+            android:backgroundTint="@color/blue"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/proximo"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textFontWeight="8"
+            android:textSize="18sp"
+            app:backgroundTint="@color/blue"
+            app:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/complemento_editText_cadastro_usuario"
+            app:layout_constraintVertical_bias="1.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
+
+

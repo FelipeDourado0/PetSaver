@@ -32,12 +32,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
+            android:id="@+id/btn_sair_tela_login"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/ic_login_sair"
             android:backgroundTint="@color/dark_grey"
+            android:textColor="@color/dark_grey"
+            android:textColorHint="@color/dark_grey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,7 +82,9 @@
             android:drawableStart="@drawable/ic_login_email"
             android:drawablePadding="10dp"
             android:drawableTint="@color/mid_grey"
+            android:fontFamily="@font/inter_medium"
             android:hint="@string/email"
+            android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             android:paddingLeft="10dp"
             android:textColorHint="@color/mid_grey"
@@ -101,16 +106,18 @@
             android:drawableStart="@drawable/ic_login_senha"
             android:drawablePadding="10dp"
             android:drawableTint="@color/mid_grey"
+            android:fontFamily="@font/inter_medium"
             android:hint="@string/senha"
+            android:importantForAutofill="no"
             android:inputType="textPassword"
             android:paddingLeft="10dp"
             android:textColorHint="@color/mid_grey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText_login_email"></EditText>
+            app:layout_constraintTop_toBottomOf="@+id/editText_login_email" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_bemVindo_home"
+            android:id="@+id/btn_entrar_tela_login"
             style="@style/Widget.Material3.Button.ElevatedButton.Icon"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -142,18 +149,22 @@
             android:textColor="@color/mid_grey"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_bemVindo_home" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_entrar_tela_login" />
 
         <TextView
             android:id="@+id/btn_cadastrese_tela_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:paddingStart="5dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
             android:text="@string/cadastrese"
             android:textColor="@color/blue"
             app:layout_constraintStart_toEndOf="@+id/texto_informativo_tela_login"
-            app:layout_constraintTop_toBottomOf="@+id/btn_bemVindo_home" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_entrar_tela_login" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"

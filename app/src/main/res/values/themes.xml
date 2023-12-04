@@ -2,7 +2,7 @@
 <resources>
     <style name="Theme.PetSaver" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary"> @color/dark_blue</item>
-        <item name="colorSecondary"> @color/mid_grey</item>
+        <item name="colorSecondary"> @color/blue</item>
         <item name="android:windowActionBarOverlay">true</item>
         <item name="windowActionBarOverlay">true</item>
     </style>
