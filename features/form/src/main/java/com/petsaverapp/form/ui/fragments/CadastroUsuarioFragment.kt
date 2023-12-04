@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.set
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
 import com.petsaverapp.form.R
 import com.petsaverapp.form.databinding.FragmentCadastroUsuarioBinding
@@ -17,12 +18,6 @@ import java.util.Calendar
 class CadastroUsuarioFragment : Fragment() {
     private var _binding: FragmentCadastroUsuarioBinding? = null
     private val binding get() = _binding!!
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,6 +51,14 @@ class CadastroUsuarioFragment : Fragment() {
                 }, ano, mes, dia
             )
             dataPickerDialog.show()
+        }
+
+        binding.btnSairTelaLogin.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
+        binding.btnProximoTelaCadastroUsuario.setOnClickListener{
+            findNavController().navigate(R.id.action_cadastroUsuarioFragment_to_cadastroUsuarioSegundaTela)
         }
     }
 

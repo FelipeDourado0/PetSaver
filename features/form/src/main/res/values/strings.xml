@@ -37,4 +37,11 @@
     <string name="complemento">Complemento</string>
     <string name="casa">Casa</string>
     <string name="proximo">Próximo</string>
+    <string name="digiteseumelhoremail">Digite seu melhor email</string>
+    <string name="digiteseuemailnovamente">Digite seu email novamente</string>
+    <string name="criesuasenha">Crie sua senha</string>
+    <string name="confirmesuasenha">Confirme sua senha</string>
+    <string name="primeirocheckboxcadastrousuario">Concordo em receber as novidades da PetSaver.</string>
+    <string name="segundocheckboxcadastrousuario">Concordo em receber as notificações sobre a vacinação do meu pet.</string>
+    <string name="junteseanos">Junte-se a nós</string>
 </resources>
