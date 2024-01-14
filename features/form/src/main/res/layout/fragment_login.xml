@@ -34,8 +34,8 @@
 
         <Button
             android:id="@+id/btn_sair_tela_login"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/ic_login_sair"
@@ -71,51 +71,73 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/subtitulo_login" />
 
-        <EditText
-            android:id="@+id/editText_login_email"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_login_email"
+            style="Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/background_input_text"
             android:backgroundTint="@color/grey"
-            android:drawableStart="@drawable/ic_login_email"
-            android:drawablePadding="10dp"
-            android:drawableTint="@color/mid_grey"
-            android:fontFamily="@font/inter_medium"
-            android:hint="@string/email"
-            android:importantForAutofill="no"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="10dp"
-            android:textColorHint="@color/mid_grey"
+            app:boxStrokeErrorColor="@color/red"
+            app:errorEnabled="true"
+            app:errorIconTint="@color/red"
+            app:errorTextColor="@color/red"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/subtitulo_login_2">
 
-        </EditText>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText_login_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/grey"
+                android:drawableStart="@drawable/ic_login_email"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/mid_grey"
+                android:fontFamily="@font/inter_medium"
+                android:hint="@string/email"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="10dp"
+                android:textColorHint="@color/mid_grey" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/editeText_login_senha"
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_login_senha"
+            style="Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/background_input_text"
             android:backgroundTint="@color/grey"
-            android:drawableStart="@drawable/ic_login_senha"
-            android:drawablePadding="10dp"
-            android:drawableTint="@color/mid_grey"
-            android:fontFamily="@font/inter_medium"
-            android:hint="@string/senha"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
-            android:paddingLeft="10dp"
-            android:textColorHint="@color/mid_grey"
+            app:boxStrokeErrorColor="@color/red"
+            app:errorEnabled="true"
+            app:errorIconTint="@color/red"
+            app:errorTextColor="@color/red"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText_login_email" />
+            app:layout_constraintTop_toBottomOf="@+id/layout_login_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editeText_login_senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/grey"
+                android:drawableStart="@drawable/ic_login_senha"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/mid_grey"
+                android:fontFamily="@font/inter_medium"
+                android:hint="@string/senha"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:textColorHint="@color/mid_grey" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_entrar_tela_login"
@@ -137,7 +159,7 @@
             app:elevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editeText_login_senha" />
+            app:layout_constraintTop_toBottomOf="@+id/layout_login_senha" />
 
         <TextView
             android:id="@+id/texto_informativo_tela_login"
