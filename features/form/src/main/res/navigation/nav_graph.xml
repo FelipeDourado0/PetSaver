@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/bemVindoFragment">
+    app:startDestination="@id/cadastroUsuarioFragment">
+    <!--app:startDestination="@id/bemVindoFragment"-->
 
     <fragment
         android:id="@+id/home"
@@ -29,9 +30,6 @@
             app:destination="@id/home"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/action_bemVindoFragment_self"
-            app:destination="@id/bemVindoFragment" />
     </fragment>
     <fragment
         android:id="@+id/materiaDetalheFragment"
@@ -50,5 +48,27 @@
         android:id="@+id/loginFragment"
         android:name="com.petsaverapp.form.ui.fragments.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_cadastroUsuarioFragment"
+            app:destination="@id/cadastroUsuarioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cadastroUsuarioFragment"
+        android:name="com.petsaverapp.form.ui.fragments.CadastroUsuarioFragment"
+        android:label="fragment_cadastro_usuario"
+        tools:layout="@layout/fragment_cadastro_usuario" >
+        <action
+            android:id="@+id/action_cadastroUsuarioFragment_to_cadastroUsuarioSegundaTela"
+            app:destination="@id/cadastroUsuarioSegundaTela" />
+    </fragment>
+    <fragment
+        android:id="@+id/cadastroUsuarioSegundaTela"
+        android:name="com.petsaverapp.form.ui.fragments.CadastroUsuarioSegundaTelaFragment"
+        android:label="fragment_cadastro_usuario_segunda_tela"
+        tools:layout="@layout/fragment_cadastro_usuario_segunda_tela" >
+        <action
+            android:id="@+id/action_cadastroUsuarioSegundaTela_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

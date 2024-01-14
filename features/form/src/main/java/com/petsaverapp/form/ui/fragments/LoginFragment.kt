@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.petsaverapp.form.R
 import com.petsaverapp.form.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,6 +26,17 @@ class LoginFragment : Fragment() {
        _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
         return binding.root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnSairTelaLogin.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
+        binding.btnCadastreseTelaLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_cadastroUsuarioFragment)
+        }
     }
 
 }
