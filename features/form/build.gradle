@@ -10,7 +10,7 @@ android {
     namespace 'com.petsaverapp.form'
     compileSdk 34
 
-    defaultConfig{
+    defaultConfig {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
@@ -37,7 +37,7 @@ android {
         }
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
 
@@ -51,6 +51,7 @@ dependencies {
     implementation project(":core:ui")
     implementation project(":core:useCases")
     implementation project(":core:repository")
+
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
