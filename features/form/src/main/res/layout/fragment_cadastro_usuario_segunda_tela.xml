@@ -96,7 +96,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
             android:backgroundTint="@color/grey"
             android:drawableStart="@drawable/ic_login_email"
@@ -133,7 +132,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
             android:backgroundTint="@color/grey"
             android:drawableStart="@drawable/ic_login_email"
@@ -170,7 +168,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
             android:backgroundTint="@color/grey"
             android:drawableStart="@drawable/ic_login_email"
@@ -203,11 +200,13 @@
 
         <CheckBox
             android:id="@+id/receber_novidades_cadastro_usuario2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/primeirocheckboxcadastrousuario"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layout_senha_novamente_cadastro_usuario2" />
 
@@ -216,7 +215,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
             android:text="@string/segundocheckboxcadastrousuario"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/receber_novidades_cadastro_usuario2" />
@@ -245,8 +243,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/concordo_receber_notificacoes_cadastro_usuaio2"
+            app:layout_constraintTop_toBottomOf="@+id/textoPoliticaPrivacidade"
             app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textoPoliticaPrivacidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/facaagoraseucadastro"
+            android:textColor="@color/dark_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/concordo_receber_notificacoes_cadastro_usuaio2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
