@@ -170,8 +170,7 @@
                 android:backgroundTint="@color/grey"
                 android:fontFamily="@font/inter_medium"
                 android:hint="@string/Endereco"
-                android:importantForAutofill="no"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:textColorHint="@color/mid_grey" />
         </com.google.android.material.textfield.TextInputLayout>
 
