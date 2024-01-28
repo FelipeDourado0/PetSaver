@@ -26,6 +26,7 @@ android {
 dependencies {
     implementation project(":core:data")
     implementation project(":core:ui")
+    implementation project(":core:api")
 
     ///ROOM
     def room_version = "2.5.2"
@@ -42,4 +43,8 @@ dependencies {
     implementation "androidx.room:room-ktx:2.5.2"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.10"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1"
+
+    //RETROFIT
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 }

@@ -1,5 +1,7 @@
 package com.petsaverapp.core.usecases
 
+import com.petsaverapp.core.usecases.enderecoApiUseCase.GetEnderecoUseCase
+import com.petsaverapp.core.usecases.enderecoApiUseCase.IGetEnderecoUseCase
 import com.petsaverapp.core.usecases.materiasUseCase.GetMateriasUseCase
 import com.petsaverapp.core.usecases.materiasUseCase.IGetMateriasUseCase
 import dagger.Binds
@@ -15,4 +17,7 @@ abstract class CollectionsModule {
     @Singleton
     @Binds
     abstract fun providesGetMateriasUseCase(impl: GetMateriasUseCase):IGetMateriasUseCase
+    @Singleton
+    @Binds
+    abstract fun providesGetApiUseCase(impl: GetEnderecoUseCase): IGetEnderecoUseCase
 }

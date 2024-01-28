@@ -51,6 +51,7 @@ dependencies {
     implementation project(":core:ui")
     implementation project(":core:useCases")
     implementation project(":core:repository")
+    implementation project(":core:api")
 
 
     implementation 'androidx.core:core-ktx:1.8.0'
@@ -83,6 +84,10 @@ dependencies {
     //DAGGER HILT
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
+
+    //RETROFIT
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 }
 kapt {
     correctErrorTypes true
