@@ -1,6 +1,7 @@
 package com.petsaverapp.form.ui.fragments
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.text.InputFilter
 import android.util.Log
@@ -8,12 +9,15 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.text.set
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -57,8 +61,10 @@ class CadastroUsuarioFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.observaEndereco.observe(viewLifecycleOwner){
-            binding.enderecoEditTextCadastroUsuario.setText(it)
+            binding.enderecoEditTextCadastroUsuario.setText(it.endereco)
+            binding.estadoDropdownCadastroUsuario.setText(it.uf)
         }
+
         binding.cepEditTextCadastroUsuario.filters += InputFilter.LengthFilter(8)
 
         binding.nascimentoCadastroUsuario.setOnClickListener {
@@ -69,29 +75,38 @@ class CadastroUsuarioFragment : Fragment() {
             findNavController().navigateUp()
         }
 
+        binding.cepEditTextCadastroUsuario.setOnHoverListener { v, event ->
+            Log.i("info_HoverListener", "Entrou Hover")
+            if (event.action == MotionEvent.ACTION_OUTSIDE) {
+                // Se sim, executar o script desejado
+                Log.i("info_HoverListener", "DEU BOM")
+            }else{
+                Log.i("infoR", "DEU BOM 2")
+            }
+            false
+        }
+
         binding.btnProximoTelaCadastroUsuario.setOnClickListener{
             if(binding.nomeEditTextCadastroUsuario.text!!.isEmpty()){
                 criarAlertaErro(it,"Coloque um nome de usuário")
                 //binding.nomeEditTextCadastroUsuario.error = "Com erro"
                 binding.nomeLayoutCadastroUsuario.error = "Digite seu nome!"
 
-                CoroutineScope(Dispatchers.IO).launch {
-                    Log.i("Info_endereco", "entrou")
-                    val response = recuperarEndereco(binding.cepEditTextCadastroUsuario.text.toString())
-                    //binding.estadoDropdownCadastroUsuario.setText(response?.uf ?: "")
-                }
+
             }else{
                 findNavController().navigate(R.id.action_cadastroUsuarioFragment_to_cadastroUsuarioSegundaTela)
             }
         }
 
-        binding.cepEditTextCadastroUsuario.setOnHoverListener{v, event ->
-            when(event.action){
-                MotionEvent.ACTION_HOVER_EXIT -> {
-                    Toast.makeText(requireContext(),"deu bom",Toast.LENGTH_SHORT).show()
+        binding.cepEditTextCadastroUsuario.addTextChangedListener {
+            val currentText = it?.toString() ?: ""
+            if(currentText.length == 8) {
+                hideKeyboard()
+                CoroutineScope(Dispatchers.IO).launch {
+                    Log.i("Info_endereco", "entrou")
+                    recuperarEndereco(binding.cepEditTextCadastroUsuario.text.toString())
                 }
             }
-            true
         }
     }
 
@@ -112,9 +127,9 @@ class CadastroUsuarioFragment : Fragment() {
                 var day = dayOfMonth.toString()
                 if(dayOfMonth.toString().length == 1)
                     day = "0$dayOfMonth"
-                val dat = ("$day/$monthString/$year")
+                val dataCompleta = ("$day/$monthString/$year")
 
-                editText.setText(dat)
+                editText.setText(dataCompleta)
             }, ano, mes, dia
         )
         dataPickerDialog.show()
@@ -132,6 +147,15 @@ class CadastroUsuarioFragment : Fragment() {
         }catch (e: Exception){
             e.printStackTrace()
             Log.i("Info_endereco", "Erro ao recuperar endereco")
+        }
+    }
+
+    fun Fragment.hideKeyboard() {
+        val view = activity?.currentFocus
+        if (view != null) {
+            val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+            view.clearFocus()
         }
     }
 }
