@@ -18,12 +18,18 @@ import javax.inject.Inject
 class CadastroUsuarioViewModel @Inject constructor(
     private val enderecoApiUseCase: IGetEnderecoUseCase
 ): ViewModel() {
-    private val _observaEndereco: MutableLiveData<String> = MutableLiveData()
-    val observaEndereco: LiveData<String> = _observaEndereco
+    private val _observaEndereco: MutableLiveData<enderecoObservable> = MutableLiveData()
+    val observaEndereco: LiveData<enderecoObservable> = _observaEndereco
     suspend fun recuperarDadosEndereco(cep: String){
         var enderecoCompleto =  viewModelScope.async{
             val result = enderecoApiUseCase.obterEnderecoDaApi(cep).body()
-            _observaEndereco.postValue(result?.logradouro ?: "")
+            _observaEndereco.postValue(enderecoObservable(result?.logradouro ?: "",result?.uf ?: ""))
         }
     }
+
+    data class enderecoObservable(
+        var endereco: String,
+        var uf: String
+    )
 }
+
