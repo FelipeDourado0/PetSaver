@@ -44,4 +44,5 @@
     <string name="primeirocheckboxcadastrousuario">Concordo em receber as novidades da PetSaver.</string>
     <string name="segundocheckboxcadastrousuario">Concordo em receber as notificações sobre a vacinação do meu pet.</string>
     <string name="junteseanos">Junte-se a nós</string>
+    <string name="CPF">CPF</string>
 </resources>

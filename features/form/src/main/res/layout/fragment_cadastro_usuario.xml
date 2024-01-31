@@ -80,7 +80,36 @@
                 android:fontFamily="@font/inter_medium"
                 android:hint="@string/nome_completo"
                 android:importantForAutofill="no"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
+                android:textColorHint="@color/mid_grey" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cpf_layout_cadastro_usuario"
+            style="Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/grey"
+            app:boxStrokeErrorColor="@color/red"
+            app:errorEnabled="true"
+            app:errorIconTint="@color/red"
+            app:errorTextColor="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nome_layout_cadastro_usuario">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cpf_editText_cadastro_usuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/grey"
+                android:fontFamily="@font/inter_medium"
+                android:hint="@string/CPF"
+                android:importantForAutofill="no"
+                android:inputType="text"
                 android:textColorHint="@color/mid_grey" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,10 +126,9 @@
             app:errorEnabled="true"
             app:errorIconTint="@color/red"
             app:errorTextColor="@color/red"
-            app:layout_constraintEnd_toStartOf="@+id/cep_layout_cadastro_usuario"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nome_layout_cadastro_usuario">
+            app:layout_constraintTop_toBottomOf="@+id/cpf_layout_cadastro_usuario">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nascimento_cadastro_usuario"
@@ -110,8 +138,7 @@
                 android:focusable="false"
                 android:fontFamily="@font/inter_medium"
                 android:hint="@string/nascimento"
-                android:textColorHint="@color/mid_grey"
-                app:layout_constraintHorizontal_chainStyle="spread" />
+                android:textColorHint="@color/mid_grey" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -130,9 +157,8 @@
             app:errorIconTint="@color/red"
             app:errorTextColor="@color/red"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/nascimento_layout_cadastro_usuario"
-            app:layout_constraintTop_toBottomOf="@+id/nome_layout_cadastro_usuario">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nascimento_layout_cadastro_usuario">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/cep_editText_cadastro_usuario"
@@ -140,10 +166,9 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/grey"
                 android:fontFamily="@font/inter_medium"
-                android:hint="CEP"
+                android:hint="@string/cep"
                 android:inputType="number"
-                android:textColorHint="@color/mid_grey"
-                app:layout_constraintHorizontal_chainStyle="spread" />
+                android:textColorHint="@color/mid_grey" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -181,14 +206,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
             android:backgroundTint="@color/grey"
             app:boxStrokeErrorColor="@color/red"
             app:errorEnabled="true"
             app:errorIconTint="@color/red"
             app:errorTextColor="@color/red"
-            app:layout_constraintEnd_toStartOf="@+id/cep_layout_cadastro_usuario"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintEnd_toStartOf="@+id/estado_layout_cadastro_usuario"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/endereco_layout_cadastro_usuario">
 
@@ -214,6 +239,7 @@
             android:layout_marginEnd="20dp"
             android:backgroundTint="@color/grey"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/numero_layout_cadastro_usuario"
             app:layout_constraintTop_toBottomOf="@+id/endereco_layout_cadastro_usuario">
 
@@ -231,7 +257,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/complemento_layout_cadastro_usuario"
             style="Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
@@ -282,6 +308,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/complemento_layout_cadastro_usuario"
             app:layout_constraintVertical_bias="1.0" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
