@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest5897147796044768101.xml:2:13-83
-INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest5897147796044768101.xml:2:13-83
+ADDED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest4935442960162302999.xml:2:13-83
+INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest4935442960162302999.xml:2:13-83
 	package
-		INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest5897147796044768101.xml
+		INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest4935442960162302999.xml
 	xmlns:android
-		ADDED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest5897147796044768101.xml:2:23-81
+		ADDED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest4935442960162302999.xml:2:23-81
 uses-sdk
-INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest5897147796044768101.xml reason: use-sdk injection requested
-INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest5897147796044768101.xml
-INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest5897147796044768101.xml
+INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest4935442960162302999.xml reason: use-sdk injection requested
+INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest4935442960162302999.xml
+INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest4935442960162302999.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest5897147796044768101.xml
+		INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest4935442960162302999.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest5897147796044768101.xml
+		INJECTED from C:\Users\felip\Documents\PetSaver\PetSaver\core\ui\build\intermediates\tmp\ProcessLibraryManifest\debug\tempAndroidManifest4935442960162302999.xml
