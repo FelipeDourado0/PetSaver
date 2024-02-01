@@ -28,8 +28,6 @@ class AdapterVoceSabiaRv(private val context: Context, private val items: List<M
     }
 
     inner class MateriaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        lateinit var onMateriaListener: MateriaClickListenner
-
         val photoPerfil = itemView.findViewById<ImageView>(R.id.photoPerfil)!!
         val imageBackground = itemView.findViewById<ImageView>(R.id.imageBackGround)!!
         val titleItem: TextView = itemView.findViewById<TextView>(R.id.title_item_card)
@@ -71,8 +69,4 @@ class AdapterVoceSabiaRv(private val context: Context, private val items: List<M
             )
         }
     }
-
-    interface MateriaClickListenner {
-        fun onMateriaClick(position: Int)
-    } 
 }
