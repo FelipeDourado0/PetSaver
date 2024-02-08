@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.petsaverapp.form.R
 import com.petsaverapp.form.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -14,9 +15,12 @@ import dagger.hilt.android.AndroidEntryPoint
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
+
+    private val autenticacao by lazy {
+        FirebaseAuth.getInstance()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(

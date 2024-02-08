@@ -70,5 +70,10 @@
         <action
             android:id="@+id/action_cadastroUsuarioSegundaTela_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <argument
+            android:name="usuario"
+            app:argType="com.petsaverapp.form.ui.dataEntities.Usuario"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
 </navigation>

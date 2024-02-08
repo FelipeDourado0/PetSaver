@@ -1,42 +1,49 @@
 package com.petsaverapp.form.ui.fragments
 
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
-import android.text.SpannedString
 import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.petsaverapp.form.R
 import com.petsaverapp.form.databinding.FragmentCadastroUsuarioSegundaTelaBinding
+import com.petsaverapp.form.ui.dataEntities.Usuario
 import java.lang.Exception
 
 class CadastroUsuarioSegundaTelaFragment : Fragment() {
     private var _binding: FragmentCadastroUsuarioSegundaTelaBinding? = null
-    private val textoPoliticaPrivacidade =
-        "Ao criar uma conta, você concorda com a Política de Privacidade e com os Termos de Uso da PetSaver."
-    private val binding get() = _binding!!
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    private val bancoDados by lazy {
+        FirebaseFirestore.getInstance()
     }
+    private val args: CadastroUsuarioSegundaTelaFragmentArgs by navArgs()
+
+    override fun onStart() {
+        super.onStart()
+    }
+
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCadastroUsuarioSegundaTelaBinding.inflate(inflater, container, false)
 
         //Voltar para primeira tela de cadastro
@@ -44,12 +51,24 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
             findNavController().navigateUp()
         }
         //Faz o index dos docuemntos de privacidade e dos termos de uso.
-        clickLinksPrivacidadeSeguranca(textoPoliticaPrivacidade)
+        clickLinksPrivacidadeSeguranca()
 
         //Cadastra Usuario
         binding.btnJunteseNosTelaCadastroUsuario2.setOnClickListener {
             if (validaCampos())
                 criarAlertaErro(it, "Preencha corretamente o formulário!")
+            else{
+                val usuario = args.usuario!!
+                salvarDados(
+                    usuario.apply {
+                        this.email = binding.emailEditTextCadastroUsuario2.text.toString()
+                        this.senha = binding.senhaNovamenteCadastroUsuario2.text.toString()
+                        this.concordouEmReceberNotificacoesSobreVacinacao = binding.concordoReceberNotificacoesCadastroUsuaio2.isChecked
+                        this.concordouEmReceberNovidades = binding.receberNovidadesCadastroUsuario2.isChecked
+                    }
+                )
+            }
+
         }
 
         retiraErro()
@@ -57,9 +76,22 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
         return binding.root
     }
 
+    private fun salvarDados(usuario: Usuario) {
+        bancoDados
+            .collection("Usuarios")
+            .document("3")
+            .set(usuario)
+            .addOnSuccessListener {
+                exibirMensagem("Usuario salvo com sucesso!")
+            }.addOnFailureListener {
+                exibirMensagem("Erro ao salvar usuário!")
+            }
+    }
+
     private fun validaCampos(): Boolean {
         var error: Boolean = false
-        var primeiroEmailValido = Patterns.EMAIL_ADDRESS.toRegex().matches(binding.emailEditTextCadastroUsuario2.text.toString())
+        val primeiroEmailValido = Patterns.EMAIL_ADDRESS.toRegex()
+            .matches(binding.emailEditTextCadastroUsuario2.text.toString())
 
 
         if (binding.emailEditTextCadastroUsuario2.text!!.isEmpty() || !primeiroEmailValido) {
@@ -124,12 +156,11 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
         }
     }
 
-    private fun clickLinksPrivacidadeSeguranca(textoCompleto: String) {
+    private fun clickLinksPrivacidadeSeguranca() {
+        val textoCompleto =
+            "Ao criar uma conta, você concorda com a Política de Privacidade e com os Termos de Uso da PetSaver."
         try {
             val spanned = SpannableString(textoCompleto)
-            val matcher = Patterns.WEB_URL.matcher(textoCompleto)
-            var matchStart: Int
-            var matchEnd: Int
 
             val politicaPrivacidadeLink: ClickableSpan = object : ClickableSpan() {
                 override fun onClick(widget: View) {
@@ -168,6 +199,27 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
         Snackbar.make(view, mensagem, Snackbar.LENGTH_SHORT).setBackgroundTint(
             ContextCompat.getColor(requireContext(), R.color.red)
         ).show()
+    }
+
+    private fun exibirMensagem(mensagem: String) {
+        Toast.makeText(requireContext(), mensagem, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun cadastrarUsuario() {
+        //Dados digitados pelo usuario
+        val email = "felipe2000.007@gmail.com"
+        val senha = "senhaPadrao@123"
+
+        val autenticacao = FirebaseAuth.getInstance()
+        autenticacao.createUserWithEmailAndPassword(
+            email, senha
+        ).addOnSuccessListener { authResult ->
+            val email = authResult.user?.email
+            val id = authResult.user?.uid
+            exibirMensagem("Cadastro Realizado: ID: $id - Email: $email")
+        }.addOnFailureListener { exception ->
+            exception.message?.let { exibirMensagem(it) }
+        }
     }
 
 }

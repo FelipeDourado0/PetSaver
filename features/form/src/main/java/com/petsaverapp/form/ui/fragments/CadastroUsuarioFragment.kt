@@ -26,11 +26,14 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import com.petsaverapp.core.api.interfaces.EnderecoAPI
 import com.petsaverapp.core.api.model.Endereco
 
 import com.petsaverapp.form.R
 import com.petsaverapp.form.databinding.FragmentCadastroUsuarioBinding
+import com.petsaverapp.form.ui.dataEntities.Usuario
 import com.petsaverapp.form.ui.viewmodel.CadastroUsuarioViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -104,9 +107,28 @@ class CadastroUsuarioFragment : Fragment() {
             if (validaCampos()) {
                 criarAlertaErro(it, "Preencha corretamente o formulário!")
             } else {
-                findNavController().navigate(R.id.action_cadastroUsuarioFragment_to_cadastroUsuarioSegundaTela)
+                val usuario = Usuario(
+                    nome = binding.nomeEditTextCadastroUsuario.text.toString(),
+                    dataNascimento = binding.nascimentoCadastroUsuario.text.toString(),
+                    cpf = binding.cpfEditTextCadastroUsuario.text.toString(),
+                    cep = binding.cepEditTextCadastroUsuario.text.toString(),
+                    endereco = binding.enderecoEditTextCadastroUsuario.text.toString(),
+                    numeroEndereco = binding.numeroEditTextCadastroUsuario.text.toString(),
+                    estado = binding.estadoDropdownCadastroUsuario.text.toString(),
+                    complemento = binding.complementoEditTextCadastroUsuario.text.toString(),
+                    email = "",
+                    senha = "",
+                    concordouEmReceberNovidades = false,
+                    concordouEmReceberNotificacoesSobreVacinacao = false
+                )
+
+                val action = CadastroUsuarioFragmentDirections
+                    .actionCadastroUsuarioFragmentToCadastroUsuarioSegundaTela(usuario)
+
+                findNavController().navigate(action)
             }
         }
+
 
     }
 
