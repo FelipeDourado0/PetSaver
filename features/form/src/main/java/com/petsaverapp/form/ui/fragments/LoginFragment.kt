@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
@@ -19,8 +20,11 @@ class LoginFragment : Fragment() {
     private val autenticacao by lazy {
         FirebaseAuth.getInstance()
     }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+
+    override fun onStart() {
+        super.onStart()
+        if(autenticacao.currentUser != null)
+            findNavController().navigate(R.id.action_loginFragment_to_pefilFragment)
     }
 
     override fun onCreateView(
@@ -41,6 +45,25 @@ class LoginFragment : Fragment() {
         binding.btnCadastreseTelaLogin.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_cadastroUsuarioFragment)
         }
-    }
 
+        binding.btnEntrarTelaLogin.setOnClickListener {
+            val email = binding.editTextLoginEmail.text?.toString()
+            val senha = binding.editeTextLoginSenha.text?.toString()
+            if(!(email.isNullOrEmpty() || senha.isNullOrEmpty())){
+                autenticacao.signInWithEmailAndPassword(email, senha)
+                    .addOnSuccessListener {
+                        findNavController().navigate(R.id.action_loginFragment_to_pefilFragment)
+                    }
+                    .addOnFailureListener {
+                        exibirMensagem("Email ou senha incorretos!")
+                    }
+            }else{
+                exibirMensagem("Email ou senha incorretos!")
+            }
+
+        }
+    }
+    private fun exibirMensagem(mensagem: String) {
+        Toast.makeText(requireContext(), mensagem, Toast.LENGTH_SHORT).show()
+    }
 }

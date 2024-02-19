@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_loginFragment_to_cadastroUsuarioFragment"
             app:destination="@id/cadastroUsuarioFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_pefilFragment"
+            app:destination="@id/pefilFragment" />
     </fragment>
     <fragment
         android:id="@+id/cadastroUsuarioFragment"
@@ -76,4 +79,9 @@
             app:nullable="true"
             android:defaultValue="@null"/>
     </fragment>
+    <fragment
+        android:id="@+id/pefilFragment"
+        android:name="com.petsaverapp.form.ui.fragments.PefilFragment"
+        android:label="fragment_pefil"
+        tools:layout="@layout/fragment_pefil" />
 </navigation>

@@ -32,6 +32,9 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
     private val bancoDados by lazy {
         FirebaseFirestore.getInstance()
     }
+    private val auth by lazy {
+        FirebaseAuth.getInstance()
+    }
     private val args: CadastroUsuarioSegundaTelaFragmentArgs by navArgs()
 
     override fun onStart() {
@@ -57,23 +60,40 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
         binding.btnJunteseNosTelaCadastroUsuario2.setOnClickListener {
             if (validaCampos())
                 criarAlertaErro(it, "Preencha corretamente o formulário!")
-            else{
+            else {
                 val usuario = args.usuario!!
+                usuario.apply {
+                    this.email = binding.emailEditTextCadastroUsuario2.text.toString()
+                    this.senha = binding.senhaNovamenteCadastroUsuario2.text.toString()
+                    this.concordouEmReceberNotificacoesSobreVacinacao =
+                        binding.concordoReceberNotificacoesCadastroUsuaio2.isChecked
+                    this.concordouEmReceberNovidades =
+                        binding.receberNovidadesCadastroUsuario2.isChecked
+                }
                 salvarDados(
-                    usuario.apply {
-                        this.email = binding.emailEditTextCadastroUsuario2.text.toString()
-                        this.senha = binding.senhaNovamenteCadastroUsuario2.text.toString()
-                        this.concordouEmReceberNotificacoesSobreVacinacao = binding.concordoReceberNotificacoesCadastroUsuaio2.isChecked
-                        this.concordouEmReceberNovidades = binding.receberNovidadesCadastroUsuario2.isChecked
-                    }
+                    usuario
                 )
+
+                salvarAutenticacao(usuario.email!!, usuario.senha!!)
             }
 
         }
 
+        //Função para retirar erro da UI do form
         retiraErro()
 
         return binding.root
+    }
+
+    private fun salvarAutenticacao(email: String, senha: String) {
+
+        auth.createUserWithEmailAndPassword(
+            email, senha
+        ).addOnSuccessListener { authResult ->
+            exibirMensagem("Usuario Cadastrado!")
+        }.addOnFailureListener { exception ->
+            exception.message?.let { exibirMensagem(it) }
+        }
     }
 
     private fun salvarDados(usuario: Usuario) {
@@ -122,11 +142,10 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
             error = true
         }
 
-        if (!binding.receberNovidadesCadastroUsuario2.isChecked)
-            binding.receberNovidadesCadastroUsuario2.error = ""
-
-        if (!binding.concordoReceberNotificacoesCadastroUsuaio2.isChecked)
+        if (!binding.concordoReceberNotificacoesCadastroUsuaio2.isChecked) {
             binding.concordoReceberNotificacoesCadastroUsuaio2.error = ""
+            error = true
+        }
 
         return error
     }
@@ -203,23 +222,6 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
 
     private fun exibirMensagem(mensagem: String) {
         Toast.makeText(requireContext(), mensagem, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun cadastrarUsuario() {
-        //Dados digitados pelo usuario
-        val email = "felipe2000.007@gmail.com"
-        val senha = "senhaPadrao@123"
-
-        val autenticacao = FirebaseAuth.getInstance()
-        autenticacao.createUserWithEmailAndPassword(
-            email, senha
-        ).addOnSuccessListener { authResult ->
-            val email = authResult.user?.email
-            val id = authResult.user?.uid
-            exibirMensagem("Cadastro Realizado: ID: $id - Email: $email")
-        }.addOnFailureListener { exception ->
-            exception.message?.let { exibirMensagem(it) }
-        }
     }
 
 }

@@ -45,4 +45,6 @@
     <string name="segundocheckboxcadastrousuario">Concordo em receber as notificações sobre a vacinação do meu pet.</string>
     <string name="junteseanos">Junte-se a nós</string>
     <string name="CPF">CPF</string>
+    <string name="logout">Logout</string>
+    <string name="botao_sair">botao sair</string>
 </resources>
