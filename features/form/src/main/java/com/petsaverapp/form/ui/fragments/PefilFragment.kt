@@ -18,9 +18,10 @@ class PefilFragment : Fragment() {
         FirebaseAuth.getInstance()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    override fun onStart() {
+        super.onStart()
+        if(autenticacao.currentUser == null)
+            findNavController().navigate(R.id.loginFragment)
     }
 
     override fun onCreateView(

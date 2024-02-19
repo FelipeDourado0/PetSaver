@@ -75,7 +75,7 @@ class CadastroUsuarioFragment : Fragment() {
 
         //Filtrando quantidade maxima de numeros
         binding.cepEditTextCadastroUsuario.filters += InputFilter.LengthFilter(8)
-        binding.cpfEditTextCadastroUsuario.filters += InputFilter.LengthFilter(11)
+        binding.cpfEditTextCadastroUsuario.filters += InputFilter.LengthFilter(14)
 
         //Criando calendario para data nascimento
         binding.nascimentoCadastroUsuario.setOnClickListener {

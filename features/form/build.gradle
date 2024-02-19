@@ -54,6 +54,8 @@ dependencies {
     implementation project(":core:repository")
     implementation project(":core:api")
 
+    //Implementacao da mascara para input text
+    //implementation 'com.github.varun-am:android-input-masking:1.0.0'
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
