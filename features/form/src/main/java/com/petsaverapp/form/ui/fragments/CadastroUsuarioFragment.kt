@@ -67,10 +67,12 @@ class CadastroUsuarioFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         retiraErro()
+        var localidade = ""
         //Observer dados vindos da API
         viewModel.observaEndereco.observe(viewLifecycleOwner) {
             binding.enderecoEditTextCadastroUsuario.setText(it.endereco)
             binding.estadoDropdownCadastroUsuario.setText(it.uf)
+            localidade = it.localidade
         }
 
         //Filtrando quantidade maxima de numeros
@@ -107,20 +109,21 @@ class CadastroUsuarioFragment : Fragment() {
             if (validaCampos()) {
                 criarAlertaErro(it, "Preencha corretamente o formulário!")
             } else {
-                val usuario = Usuario(
-                    nome = binding.nomeEditTextCadastroUsuario.text.toString(),
-                    dataNascimento = binding.nascimentoCadastroUsuario.text.toString(),
-                    cpf = binding.cpfEditTextCadastroUsuario.text.toString(),
-                    cep = binding.cepEditTextCadastroUsuario.text.toString(),
-                    endereco = binding.enderecoEditTextCadastroUsuario.text.toString(),
-                    numeroEndereco = binding.numeroEditTextCadastroUsuario.text.toString(),
-                    estado = binding.estadoDropdownCadastroUsuario.text.toString(),
-                    complemento = binding.complementoEditTextCadastroUsuario.text.toString(),
-                    email = "",
-                    senha = "",
-                    concordouEmReceberNovidades = false,
-                    concordouEmReceberNotificacoesSobreVacinacao = false
-                )
+                 val usuario = Usuario(
+                     nome = binding.nomeEditTextCadastroUsuario.text.toString(),
+                     dataNascimento = binding.nascimentoCadastroUsuario.text.toString(),
+                     cpf = binding.cpfEditTextCadastroUsuario.text.toString(),
+                     cep = binding.cepEditTextCadastroUsuario.text.toString(),
+                     endereco = binding.enderecoEditTextCadastroUsuario.text.toString(),
+                     numeroEndereco = binding.numeroEditTextCadastroUsuario.text.toString(),
+                     estado = binding.estadoDropdownCadastroUsuario.text.toString(),
+                     complemento = binding.complementoEditTextCadastroUsuario.text.toString(),
+                     localidade = localidade,
+                     email = "",
+                     senha = "",
+                     concordouEmReceberNovidades = false,
+                     concordouEmReceberNotificacoesSobreVacinacao = false
+                 )
 
                 val action = CadastroUsuarioFragmentDirections
                     .actionCadastroUsuarioFragmentToCadastroUsuarioSegundaTela(usuario)

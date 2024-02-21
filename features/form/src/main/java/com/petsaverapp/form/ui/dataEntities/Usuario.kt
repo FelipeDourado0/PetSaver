@@ -12,12 +12,14 @@ data class Usuario(
     var numeroEndereco: String?,
     var estado: String?,
     var complemento: String?,
+    var localidade: String?,
     var email: String?,
     var senha: String?,
     var concordouEmReceberNovidades: Boolean,
     var concordouEmReceberNotificacoesSobreVacinacao: Boolean
 ): Parcelable{
     constructor(parcel: Parcel) : this(
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),

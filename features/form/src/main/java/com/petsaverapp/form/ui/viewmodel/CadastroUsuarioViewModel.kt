@@ -23,13 +23,14 @@ class CadastroUsuarioViewModel @Inject constructor(
     suspend fun recuperarDadosEndereco(cep: String){
         var enderecoCompleto =  viewModelScope.async{
             val result = enderecoApiUseCase.obterEnderecoDaApi(cep).body()
-            _observaEndereco.postValue(enderecoObservable(result?.logradouro ?: "",result?.uf ?: ""))
+            _observaEndereco.postValue(enderecoObservable(result?.logradouro ?: "",result?.uf ?: "",result?.localidade ?: ""))
         }
     }
 
     data class enderecoObservable(
         var endereco: String,
-        var uf: String
+        var uf: String,
+        var localidade: String
     )
 }
 

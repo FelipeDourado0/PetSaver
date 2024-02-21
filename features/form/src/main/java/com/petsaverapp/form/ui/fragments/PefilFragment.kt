@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.petsaverapp.form.R
 import com.petsaverapp.form.databinding.FragmentBemVindoBinding
 import com.petsaverapp.form.databinding.FragmentPefilBinding
@@ -16,6 +17,10 @@ class PefilFragment : Fragment() {
     private val binding get() = _binding!!
     private val autenticacao by lazy {
         FirebaseAuth.getInstance()
+    }
+
+    private val fireBaseBanco by lazy {
+        FirebaseFirestore.getInstance()
     }
 
     override fun onStart() {
@@ -30,15 +35,24 @@ class PefilFragment : Fragment() {
     ): View? {
         _binding = FragmentPefilBinding.inflate(inflater,container,false)
 
-        binding.iconeSairPerfil.setOnClickListener {
+        binding.btnLogoutPerfil.setOnClickListener {
             autenticacao.signOut()
             findNavController().navigate(R.id.loginFragment)
         }
-        binding.textoSaitPerfil.setOnClickListener {
-            autenticacao.signOut()
-            findNavController().navigate(R.id.loginFragment)
+        binding.btnVoltarPerfil.setOnClickListener {
+            findNavController().navigate(R.id.action_pefilFragment_to_bemVindoFragment)
         }
 
+        var dadosPessoaisUsuario = fireBaseBanco
+            .collection("Usuarios")
+            .document(autenticacao.uid!!)
+            .get()
+
+        dadosPessoaisUsuario.addOnSuccessListener {
+            val dados = it.data
+            binding.nomeUsuarioPerfil.text = dados?.get("nome").toString()
+            binding.cidadeUsuarioPerfil.text = dados?.get("localidade").toString()
+        }
         return binding.root
     }
 
