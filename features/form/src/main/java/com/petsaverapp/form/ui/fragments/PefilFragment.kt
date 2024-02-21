@@ -46,12 +46,15 @@ class PefilFragment : Fragment() {
         var dadosPessoaisUsuario = fireBaseBanco
             .collection("Usuarios")
             .document(autenticacao.uid!!)
-            .get()
 
-        dadosPessoaisUsuario.addOnSuccessListener {
-            val dados = it.data
-            binding.nomeUsuarioPerfil.text = dados?.get("nome").toString()
-            binding.cidadeUsuarioPerfil.text = dados?.get("localidade").toString()
+        //Utilizado para atualizar os dados em tempo real
+        dadosPessoaisUsuario.addSnapshotListener { value, error ->
+            val dados = value?.data
+            if(dados != null){
+                binding.nomeUsuarioPerfil.text = dados?.get("nome").toString()
+                binding.cidadeUsuarioPerfil.text = dados?.get("localidade").toString()
+            }
+
         }
         return binding.root
     }
