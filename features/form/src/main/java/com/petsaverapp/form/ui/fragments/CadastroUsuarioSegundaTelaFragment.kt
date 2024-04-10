@@ -37,10 +37,6 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
     }
     private val args: CadastroUsuarioSegundaTelaFragmentArgs by navArgs()
 
-    override fun onStart() {
-        super.onStart()
-    }
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -70,11 +66,8 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
                     this.concordouEmReceberNovidades =
                         binding.receberNovidadesCadastroUsuario2.isChecked
                 }
-                salvarDados(
-                    usuario
-                )
+                salvarUsuario(usuario)
 
-                salvarAutenticacao(usuario.email!!, usuario.senha!!)
             }
 
         }
@@ -85,12 +78,12 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
         return binding.root
     }
 
-    private fun salvarAutenticacao(email: String, senha: String) {
+    private fun salvarUsuario(usuario: Usuario){
 
         auth.createUserWithEmailAndPassword(
-            email, senha
+            usuario.email!!, usuario.senha!!
         ).addOnSuccessListener { authResult ->
-            exibirMensagem("Usuario Cadastrado!")
+            salvarDados(usuario)
         }.addOnFailureListener { exception ->
             exception.message?.let { exibirMensagem(it) }
         }
@@ -99,10 +92,11 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
     private fun salvarDados(usuario: Usuario) {
         bancoDados
             .collection("Usuarios")
-            .document("3")
+            .document(auth.currentUser?.uid ?: "")
             .set(usuario)
             .addOnSuccessListener {
                 exibirMensagem("Usuario salvo com sucesso!")
+                findNavController().navigate(R.id.pefilFragment)
             }.addOnFailureListener {
                 exibirMensagem("Erro ao salvar usuário!")
             }
@@ -112,7 +106,6 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
         var error: Boolean = false
         val primeiroEmailValido = Patterns.EMAIL_ADDRESS.toRegex()
             .matches(binding.emailEditTextCadastroUsuario2.text.toString())
-
 
         if (binding.emailEditTextCadastroUsuario2.text!!.isEmpty() || !primeiroEmailValido) {
             binding.emailLayoutCadastroUsuario2.error = "Digite um email valido!"
@@ -139,11 +132,6 @@ class CadastroUsuarioSegundaTelaFragment : Fragment() {
         ) {
             binding.layoutSenhaNovamenteCadastroUsuario2.error =
                 "Senha digitada é inválida ou diferente a anterior!"
-            error = true
-        }
-
-        if (!binding.concordoReceberNotificacoesCadastroUsuaio2.isChecked) {
-            binding.concordoReceberNotificacoesCadastroUsuaio2.error = ""
             error = true
         }
 

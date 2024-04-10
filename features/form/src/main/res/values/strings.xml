@@ -47,4 +47,10 @@
     <string name="CPF">CPF</string>
     <string name="logout">Logout</string>
     <string name="botao_sair">botao sair</string>
+    <string name="nome_usuario">Nome Usuario</string>
+    <string name="cidade">Cidade</string>
+    <string name="meus_pets">Meus Pets</string>
+    <string name="numero_pets">0</string>
+    <string name="sua_carteira_pet">Sua Carteira Pet</string>
+    <string name="configurar_perfil">Configurar Perfil</string>
 </resources>

@@ -109,7 +109,7 @@
                 android:fontFamily="@font/inter_medium"
                 android:hint="@string/CPF"
                 android:importantForAutofill="no"
-                android:inputType="text"
+                android:inputType="number"
                 android:textColorHint="@color/mid_grey" />
         </com.google.android.material.textfield.TextInputLayout>
 
