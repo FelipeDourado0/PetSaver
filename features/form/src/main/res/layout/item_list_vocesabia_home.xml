@@ -65,7 +65,7 @@
                 android:fontFamily="@font/inter_medium"
                 android:text="@string/chamada_item_card"
                 android:textColor="@color/semi_Trasparent"
-                android:textSize="10dp"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/title_item_card"
                 app:layout_constraintTop_toBottomOf="@+id/title_item_card" />
 

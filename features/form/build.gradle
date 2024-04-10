@@ -53,6 +53,8 @@ dependencies {
     implementation project(":core:useCases")
     implementation project(":core:repository")
     implementation project(":core:api")
+    implementation project(":core:firebase")
+
 
     //Implementacao da mascara para input text
     //implementation 'com.github.varun-am:android-input-masking:1.0.0'

@@ -43,7 +43,7 @@ class PefilFragment : Fragment() {
             findNavController().navigate(R.id.action_pefilFragment_to_bemVindoFragment)
         }
 
-        var dadosPessoaisUsuario = fireBaseBanco
+        val dadosPessoaisUsuario = fireBaseBanco
             .collection("Usuarios")
             .document(autenticacao.uid!!)
 
@@ -51,8 +51,8 @@ class PefilFragment : Fragment() {
         dadosPessoaisUsuario.addSnapshotListener { value, error ->
             val dados = value?.data
             if(dados != null){
-                binding.nomeUsuarioPerfil.text = dados?.get("nome").toString()
-                binding.cidadeUsuarioPerfil.text = dados?.get("localidade").toString()
+                binding.nomeUsuarioPerfil.text = dados["nome"].toString()
+                binding.cidadeUsuarioPerfil.text = dados["localidade"].toString()
             }
 
         }

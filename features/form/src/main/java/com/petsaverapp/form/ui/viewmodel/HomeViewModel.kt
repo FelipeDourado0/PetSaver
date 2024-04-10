@@ -15,12 +15,12 @@ class HomeViewModel @Inject constructor(
     private val obterMateriasUseCase: IGetMateriasUseCase
 ) : ViewModel() {
     suspend fun dadosVoceSabiLista(): MutableList<MateriaDomain>{
-        var result=  viewModelScope.async { obterMateriasUseCase.obterVoceSabiaList() }
+        val result=  viewModelScope.async { obterMateriasUseCase.obterVoceSabiaList() }
         return result.await()
     }
 
     suspend fun dadosExploreLista(): MutableList<MateriaDomain>{
-        var result=  viewModelScope.async { obterMateriasUseCase.obterExploreList() }
+        val result=  viewModelScope.async { obterMateriasUseCase.obterExploreList() }
         return result.await()
     }
 

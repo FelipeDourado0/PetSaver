@@ -6,24 +6,33 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.petsaverapp.firebase.auth.IAutenticacao
 import com.petsaverapp.form.R
 import com.petsaverapp.form.databinding.FragmentLoginBinding
+import com.petsaverapp.form.ui.viewmodel.CadastroUsuarioViewModel
+import com.petsaverapp.form.ui.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.coroutineScope
+import javax.inject.Inject
+import kotlin.coroutines.coroutineContext
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
-    private val autenticacao by lazy {
-        FirebaseAuth.getInstance()
+    private lateinit var viewModel: LoginViewModel
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
     }
 
     override fun onStart() {
         super.onStart()
-        if(autenticacao.currentUser != null)
+        if (viewModel.usuarioAutenticado())
             findNavController().navigate(R.id.action_loginFragment_to_pefilFragment)
     }
 
@@ -31,15 +40,16 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnSairTelaLogin.setOnClickListener {
-            findNavController().navigateUp()
+            findNavController().navigate(R.id.action_loginFragment_to_bemVindoFragment)
         }
 
         binding.btnCadastreseTelaLogin.setOnClickListener {
@@ -47,22 +57,18 @@ class LoginFragment : Fragment() {
         }
 
         binding.btnEntrarTelaLogin.setOnClickListener {
-            val email = binding.editTextLoginEmail.text?.toString()
-            val senha = binding.editeTextLoginSenha.text?.toString()
-            if(!(email.isNullOrEmpty() || senha.isNullOrEmpty())){
-                autenticacao.signInWithEmailAndPassword(email, senha)
-                    .addOnSuccessListener {
-                        findNavController().navigate(R.id.action_loginFragment_to_pefilFragment)
-                    }
-                    .addOnFailureListener {
-                        exibirMensagem("Email ou senha incorretos!")
-                    }
-            }else{
-                exibirMensagem("Email ou senha incorretos!")
-            }
+            val email = binding.editTextLoginEmail.text?.toString()?:""
+            val senha = binding.editeTextLoginSenha.text?.toString()?:""
 
+            viewModel.efetuarLogin(email,senha).observe(viewLifecycleOwner){
+                if(!it.loginEfetuado)
+                    exibirMensagem(it.mensagemErro)
+                else
+                    findNavController().navigate(R.id.action_loginFragment_to_pefilFragment)
+            }
         }
     }
+
     private fun exibirMensagem(mensagem: String) {
         Toast.makeText(requireContext(), mensagem, Toast.LENGTH_SHORT).show()
     }

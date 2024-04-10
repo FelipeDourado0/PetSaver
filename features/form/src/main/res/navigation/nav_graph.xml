@@ -18,7 +18,9 @@
             app:exitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_home_to_materiaDetalheFragment"
-            app:destination="@id/materiaDetalheFragment" />
+            app:destination="@id/materiaDetalheFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/bemVindoFragment"
@@ -37,7 +39,9 @@
         android:label="MateriaDetalheFragment" >
         <action
             android:id="@+id/action_materiaDetalheFragment_to_home"
-            app:destination="@id/home" />
+            app:destination="@id/home"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
         <argument
             android:name="materia"
             app:argType="com.petsaverapp.form.ui.dataEntities.Materia"
@@ -51,10 +55,19 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_cadastroUsuarioFragment"
-            app:destination="@id/cadastroUsuarioFragment" />
+            app:destination="@id/cadastroUsuarioFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_loginFragment_to_pefilFragment"
-            app:destination="@id/pefilFragment" />
+            app:destination="@id/pefilFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_bemVindoFragment"
+            app:destination="@id/bemVindoFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/cadastroUsuarioFragment"
@@ -63,7 +76,9 @@
         tools:layout="@layout/fragment_cadastro_usuario" >
         <action
             android:id="@+id/action_cadastroUsuarioFragment_to_cadastroUsuarioSegundaTela"
-            app:destination="@id/cadastroUsuarioSegundaTela" />
+            app:destination="@id/cadastroUsuarioSegundaTela"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/cadastroUsuarioSegundaTela"
@@ -72,7 +87,9 @@
         tools:layout="@layout/fragment_cadastro_usuario_segunda_tela" >
         <action
             android:id="@+id/action_cadastroUsuarioSegundaTela_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
         <argument
             android:name="usuario"
             app:argType="com.petsaverapp.form.ui.dataEntities.Usuario"
@@ -86,6 +103,8 @@
         tools:layout="@layout/fragment_pefil" >
         <action
             android:id="@+id/action_pefilFragment_to_bemVindoFragment"
-            app:destination="@id/bemVindoFragment" />
+            app:destination="@id/bemVindoFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
 </navigation>

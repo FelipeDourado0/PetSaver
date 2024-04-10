@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.petsaverapp.form.R
 import com.petsaverapp.form.databinding.FragmentHomeBinding
 import com.petsaverapp.form.ui.adapters.AdapterExploreRv
@@ -43,8 +45,7 @@ class HomeFragment : Fragment() {
         ///EXPLORE LIST
         val recyclerViewExplore = binding.recyclerVeiwExplore
 
-        recyclerViewExplore.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewExplore.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recyclerViewExplore.setHasFixedSize(true)
 
         lifecycleScope.launch {
